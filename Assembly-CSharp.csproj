@@ -66,6 +66,8 @@
     <Compile Include="Assets\Code\Armes\Balle.cs" />
     <Compile Include="Assets\Code\Ennemis\RunnerMouvements.cs" />
     <Compile Include="Assets\Code\Personnage\PersonnageLampe.cs" />
+    <Compile Include="Assets\Code\Personnage\PersonnageVIsee.cs" />
+    <Compile Include="Assets\Code\Personnage\PersonnageBrasRotation.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

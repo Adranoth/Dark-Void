@@ -46,12 +46,14 @@ public class PersonnageMouvements : MonoBehaviour
         float move = Input.GetAxis("Horizontal");
         float moveY = Input.GetAxis("Vertical");
 
-        if (move > 0f && !faceADroite)
+        Vector3 difference = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+
+        if (difference.x > 0f && !faceADroite)
         {
             Flip();
         }
 
-        if (move < 0f && faceADroite)
+        if (difference.x < 0f && faceADroite)
         {
             Flip();
         }
