@@ -12,7 +12,8 @@ public class JetpackRecup : MonoBehaviour
         if (collision.gameObject.CompareTag("Joueur"))
         {
             personnageMouvements.jetpackAcquis = true;
+            Destroy(gameObject);
         }
-        Destroy(gameObject);
+        
     }
 }

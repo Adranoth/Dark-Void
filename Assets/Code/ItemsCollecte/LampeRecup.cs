@@ -11,7 +11,7 @@ public class LampeRecup : MonoBehaviour
         if (collision.gameObject.CompareTag("Joueur"))
         {
             personnageLampe.lampeAcquise = true;
+            Destroy(gameObject);
         }
-        Destroy(gameObject);
     }
 }

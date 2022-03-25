@@ -8,7 +8,6 @@ public class PersonnageVisee : MonoBehaviour
 
     void Update()
     {
-        print(Camera.main.ScreenToWorldPoint(Input.mousePosition));
 
         Vector3 difference = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
 
