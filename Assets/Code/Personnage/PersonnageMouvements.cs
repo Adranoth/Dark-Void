@@ -10,7 +10,8 @@ public class PersonnageMouvements : MonoBehaviour
     public float linearDragJetpack = 10f;
     public float graviteAuSol = 15f;
     public float graviteJetpack = 0f;
-    public Animator animator;
+    public Animator personnage;
+    public Animator jetpack;
 
     bool faceADroite = true;
 
@@ -48,15 +49,15 @@ public class PersonnageMouvements : MonoBehaviour
         float move = Input.GetAxis("Horizontal");
         float moveY = Input.GetAxis("Vertical");
 
-        animator.SetFloat("Speed2", Mathf.Abs(move));
+        personnage.SetFloat("Speed2", Mathf.Abs(move));
 
         if (faceADroite == true)
         {
-            animator.SetFloat("Speed", move);
+            personnage.SetFloat("Speed", move);
         }
         else
         {
-            animator.SetFloat("Speed", (move * -1));
+            personnage.SetFloat("Speed", (move * -1));
         }
 
         Vector3 difference = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
@@ -96,6 +97,7 @@ public class PersonnageMouvements : MonoBehaviour
             jetpackActive = true;
             personnageRb.drag = linearDragJetpack;
             personnageRb.gravityScale = graviteJetpack;
+            jetpack.SetBool("EstAllume", true);
         }
         if (jetpackActive)
         {
@@ -108,6 +110,7 @@ public class PersonnageMouvements : MonoBehaviour
             tempsDeJetpackCD = 0;
             personnageRb.drag = linearDragAuSol;
             personnageRb.gravityScale = graviteAuSol;
+            jetpack.SetBool("EstAllume", false);
         }
         if (jetpackEnCD)
         {
@@ -126,6 +129,7 @@ public class PersonnageMouvements : MonoBehaviour
             enSaut = true;
             tempsDeSaut = 0;
             auSol = false;
+            personnage.SetBool("IsJumping", true);
         }
         if (enSaut)
         {
@@ -143,6 +147,7 @@ public class PersonnageMouvements : MonoBehaviour
         if(collision.gameObject.CompareTag("Sol"))
         {
             auSol = true;
+            personnage.SetBool("IsJumping", false);
         }
     }
 }

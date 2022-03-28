@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <LangVersion>9.0</LangVersion>
+    <LangVersion>8.0</LangVersion>
   </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -57,6 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Code\Armes\Arme.cs" />
+    <Compile Include="Assets\Personnag_tête_rotation.cs" />
     <Compile Include="Assets\Code\ItemsCollecte\JetpackRecup.cs" />
     <Compile Include="Assets\Code\Personnage\PersonnageMouvements.cs" />
     <Compile Include="Assets\Code\ItemsCollecte\LampeRecup.cs" />
@@ -68,7 +69,7 @@
     <Compile Include="Assets\Code\Personnage\PersonnageBrasRotation.cs" />
     <Compile Include="Assets\Code\Ennemis\RunnerMouvements.cs" />
     <Compile Include="Assets\Code\Personnage\PersonnageLampe.cs" />
-    <Compile Include="Assets\Personnag_tête_rotation.cs" />
+    <Compile Include="Assets\BrasLampe.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Tileset\Unity Store\2D Pixel Spacecraft Tileset\Get FREE Custom Pixel Art From Me.txt" />
