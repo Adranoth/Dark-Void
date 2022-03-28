@@ -10,6 +10,7 @@ public class PersonnageMouvements : MonoBehaviour
     public float linearDragJetpack = 10f;
     public float graviteAuSol = 15f;
     public float graviteJetpack = 0f;
+    public Animator animator;
 
     bool faceADroite = true;
 
@@ -39,12 +40,24 @@ public class PersonnageMouvements : MonoBehaviour
     {
         Saut();
         Jetpack();
+        
     }
 
     private void Direction()
     {
         float move = Input.GetAxis("Horizontal");
         float moveY = Input.GetAxis("Vertical");
+
+        animator.SetFloat("Speed2", Mathf.Abs(move));
+
+        if (faceADroite == true)
+        {
+            animator.SetFloat("Speed", move);
+        }
+        else
+        {
+            animator.SetFloat("Speed", (move * -1));
+        }
 
         Vector3 difference = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
 

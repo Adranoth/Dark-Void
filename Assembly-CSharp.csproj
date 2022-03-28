@@ -68,6 +68,7 @@
     <Compile Include="Assets\Code\Personnage\PersonnageBrasRotation.cs" />
     <Compile Include="Assets\Code\Ennemis\RunnerMouvements.cs" />
     <Compile Include="Assets\Code\Personnage\PersonnageLampe.cs" />
+    <Compile Include="Assets\Personnag_tête_rotation.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Tileset\Unity Store\2D Pixel Spacecraft Tileset\Get FREE Custom Pixel Art From Me.txt" />
