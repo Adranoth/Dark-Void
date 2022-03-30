@@ -28,6 +28,11 @@ public class Balle : MonoBehaviour
                 return;
             }
         }
+
+        if (collision.CompareTag("Joueur"))
+        {
+            return;
+        }
         Destroy(gameObject);
     }
 }

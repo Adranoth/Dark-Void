@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{C61E3D11-A77A-C2AE-92CE-4D91D3168C89}</ProjectGuid>
+    <ProjectGuid>{4EDACC66-BC88-4898-FF1F-C9B6E7DFE7F1}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -56,7 +56,7 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Code\Armes\Arme.cs" />
+    <Compile Include="Assets\Code\Personnage\PersonnageTirer.cs" />
     <Compile Include="Assets\Personnag_tête_rotation.cs" />
     <Compile Include="Assets\Code\ItemsCollecte\JetpackRecup.cs" />
     <Compile Include="Assets\Code\Personnage\PersonnageMouvements.cs" />
@@ -70,6 +70,8 @@
     <Compile Include="Assets\Code\Ennemis\RunnerMouvements.cs" />
     <Compile Include="Assets\Code\Personnage\PersonnageLampe.cs" />
     <Compile Include="Assets\BrasLampe.cs" />
+    <Compile Include="Assets\Code\Armes\Flare.cs" />
+    <Compile Include="Assets\Code\Personnage\PersonnageLancerFlare.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Tileset\Unity Store\2D Pixel Spacecraft Tileset\Get FREE Custom Pixel Art From Me.txt" />
@@ -873,15 +875,15 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="PackageToolsEditor.csproj">
-      <Project>{0F133AEE-F218-4B01-2B74-9038F98C313F}</Project>
+      <Project>{D13FD23C-3DD2-1322-1B05-46D938FF6E3B}</Project>
       <Name>PackageToolsEditor</Name>
     </ProjectReference>
     <ProjectReference Include="AstarPathfindingProjectEditor.csproj">
-      <Project>{CF1E0312-4FE0-DE53-28BB-A0C2EC11AEB2}</Project>
+      <Project>{2D0EA5FE-CCC4-4530-2BD9-BB8ADE0EF43E}</Project>
       <Name>AstarPathfindingProjectEditor</Name>
     </ProjectReference>
     <ProjectReference Include="AstarPathfindingProject.csproj">
-      <Project>{BB5EA8C4-AB0A-E4A3-7543-CAD637007373}</Project>
+      <Project>{412C85A7-74C3-A340-1316-F4AF3FE85AF2}</Project>
       <Name>AstarPathfindingProject</Name>
     </ProjectReference>
   </ItemGroup>

@@ -7,9 +7,9 @@ public class LampeRecup : MonoBehaviour
     public PersonnageLampe personnageLampe;
     public BrasLampe brasLampe;
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Joueur"))
+        if (collision.CompareTag("Joueur"))
         {
             personnageLampe.lampeAcquise = true;
             brasLampe.lampeAcquise = true;
