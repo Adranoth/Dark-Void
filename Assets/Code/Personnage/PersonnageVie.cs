@@ -11,6 +11,8 @@ public class PersonnageVie : MonoBehaviour
     public Transform checkpoint;
     public Transform vaisseau;
 
+    public GameObject ecranDeMort;
+
     public int vieMax = 100;
     public int vieActuelle;
 
@@ -19,7 +21,8 @@ public class PersonnageVie : MonoBehaviour
 
     void Start()
     {
-        vieActuelle = vieMax;   
+        vieActuelle = vieMax;
+        transform.position = checkpoint.position;
     }
 
     public void PrendreDegats(int degats)
@@ -34,7 +37,8 @@ public class PersonnageVie : MonoBehaviour
 
         if(vieActuelle <= 0)
         {
-            Destroy(gameObject);
+            ecranDeMort.SetActive(true);
+            gameObject.SetActive(false);
         }
     }
 
@@ -53,5 +57,13 @@ public class PersonnageVie : MonoBehaviour
     {
         yield return new WaitForSeconds(invincibiliteDuree);
         estInvincible = false;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Checkpoint"))
+        {
+            checkpoint = collision.transform;
+        }
     }
 }
