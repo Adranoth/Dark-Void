@@ -144,7 +144,7 @@ public class PersonnageMouvements : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.CompareTag("Sol"))
+        if (collision.gameObject.CompareTag("Sol"))
         {
             auSol = true;
             personnage.SetBool("IsJumping", false);
