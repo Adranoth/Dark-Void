@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class RunnerVie : MonoBehaviour
 {
-
     public int vieMax = 100;
     public int vieActuelle;
 
-    void Start()
+    void Awake()
     {
         vieActuelle = vieMax;
     }

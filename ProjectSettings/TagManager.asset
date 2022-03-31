@@ -8,15 +8,16 @@ TagManager:
   - Joueur
   - Ennemi
   - Appat
+  - Checkpoint
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - NPC
   - Water
   - UI
   - Obstacles
-  - 
+  - Joueur
   - 
   - 
   - 

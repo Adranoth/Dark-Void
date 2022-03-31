@@ -8,6 +8,9 @@ public class PersonnageVie : MonoBehaviour
     public SpriteRenderer graphiques;
     public float flashIntervalle = 0.1f;
 
+    public Transform checkpoint;
+    public Transform vaisseau;
+
     public int vieMax = 100;
     public int vieActuelle;
 

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8990847769400571047}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PointDeSortieFlare
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 154805969340730660}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.4334135, y: -0.26335716, z: 0.18339407}
+  m_LocalPosition: {x: 0.72, y: 0.37, z: 0.18339407}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -41,7 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 687641194874146027}
   - component: {fileID: 687641194874146020}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Lumiere_LampeTorche
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -151,7 +151,7 @@ GameObject:
   m_Component:
   - component: {fileID: 687641195060932480}
   - component: {fileID: 687641195060932481}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Visee_2
   m_TagString: Untagged
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
@@ -197,7 +197,7 @@ GameObject:
   m_Component:
   - component: {fileID: 687641195136570613}
   - component: {fileID: 687641195136570614}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Lumiere_LampeTorche
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -307,7 +307,7 @@ GameObject:
   m_Component:
   - component: {fileID: 687641195489860478}
   - component: {fileID: 687641195489860479}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: bras_gauche
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -391,7 +391,7 @@ GameObject:
   m_Component:
   - component: {fileID: 687641195505977247}
   - component: {fileID: 687641195505977240}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Visee
   m_TagString: Untagged
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
@@ -439,7 +439,7 @@ GameObject:
   - component: {fileID: 687641195545159108}
   - component: {fileID: 687641195545159110}
   - component: {fileID: 2003606392852339154}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bras
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -552,7 +552,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 687641195546123787}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PointDeSortieBalle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -583,7 +583,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 687641196593350361}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PointDeSortieBalle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -616,7 +616,7 @@ GameObject:
   - component: {fileID: 687641196607894696}
   - component: {fileID: 687641196607894698}
   - component: {fileID: 687641196607894697}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Tete
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -723,7 +723,7 @@ GameObject:
   - component: {fileID: 687641196765495956}
   - component: {fileID: 687641195518184944}
   - component: {fileID: 687641195518184945}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Personnage
   m_TagString: Joueur
   m_Icon: {fileID: 0}
@@ -737,7 +737,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 687641196765495974}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.67, y: 11.12, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -939,8 +939,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eac443afb3db99e459a93c9dcf75471b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sortieDuFlare: {fileID: 0}
-  flarePrefab: {fileID: 5283465768330866268, guid: 290d89efbb211d74b9c48b14b81ea670, type: 3}
+  sortieDuFlare: {fileID: 8990847769400571047}
+  flarePrefab: {fileID: 175594690790300727, guid: 290d89efbb211d74b9c48b14b81ea670, type: 3}
 --- !u!114 &687641195518184945
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -966,7 +966,7 @@ GameObject:
   - component: {fileID: 2003606392619328239}
   - component: {fileID: 2003606392619328238}
   - component: {fileID: 2003606392619328225}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: jetpack
   m_TagString: Untagged
   m_Icon: {fileID: 0}

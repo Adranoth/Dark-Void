@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4524283726527838394}
   - component: {fileID: 4524283726527838396}
   - component: {fileID: 4524283726527838397}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: RunnerGFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -121,7 +121,7 @@ GameObject:
   - component: {fileID: 4524283727752486189}
   - component: {fileID: 4524283727752486186}
   - component: {fileID: 4524283727752486187}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Runner
   m_TagString: Ennemi
   m_Icon: {fileID: 0}
