@@ -27,9 +27,18 @@ public class Balle : MonoBehaviour
                 Destroy(gameObject);
                 return;
             }
+
+            JumperVie jumper = collision.GetComponent<JumperVie>();
+            //Est-ce un jumper ?
+            if (jumper != null)
+            {
+                jumper.PrendreDegats(degats);
+                Destroy(gameObject);
+                return;
+            }
         }
 
-        if (collision.CompareTag("Joueur"))
+        if (collision.CompareTag("Joueur") || collision.CompareTag("Checkpoint"))
         {
             return;
         }
