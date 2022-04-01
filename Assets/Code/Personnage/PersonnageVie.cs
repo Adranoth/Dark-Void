@@ -15,6 +15,7 @@ public class PersonnageVie : MonoBehaviour
 
     public int vieMax = 100;
     public int vieActuelle;
+    public BarDeVie bardevie;
 
     public float invincibiliteDuree = 3f;
     public bool estInvincible = false;
@@ -23,6 +24,7 @@ public class PersonnageVie : MonoBehaviour
     {
         vieActuelle = vieMax;
         transform.position = checkpoint.position;
+        bardevie.MetVieMax(vieMax);
     }
 
     public void PrendreDegats(int degats)
@@ -33,6 +35,7 @@ public class PersonnageVie : MonoBehaviour
             estInvincible = true;
             StartCoroutine(InvincibiliteFlash());
             StartCoroutine(InvincibiliteHandler());
+            bardevie.MetVie(vieActuelle);
         }
 
         if(vieActuelle <= 0)
