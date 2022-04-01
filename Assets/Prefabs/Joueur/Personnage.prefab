@@ -863,6 +863,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   graphiques: {fileID: 687641196765495975}
   flashIntervalle: 0.1
+  checkpoint: {fileID: 0}
+  vaisseau: {fileID: 0}
+  ecranDeMort: {fileID: 0}
   vieMax: 100
   vieActuelle: 0
   invincibiliteDuree: 3
