@@ -126,10 +126,10 @@ public class PersonnageMouvements : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) && auSol)
         {
+            personnage.SetBool("IsJumping", true);
             enSaut = true;
             tempsDeSaut = 0;
             auSol = false;
-            personnage.SetBool("IsJumping", true);
         }
         if (enSaut)
         {

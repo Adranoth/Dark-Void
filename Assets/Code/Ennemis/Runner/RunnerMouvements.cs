@@ -14,6 +14,7 @@ public class RunnerMouvements : MonoBehaviour
     private Vector3 ciblePosition;
 
     private Rigidbody2D runnerRB;
+    public Animator animator;
     
 
 
@@ -25,6 +26,7 @@ public class RunnerMouvements : MonoBehaviour
     {
         ciblePosition = new Vector3(cible.position.x, runnerRB.position.y, 0);
         runnerRB.position = Vector2.MoveTowards(transform.position, ciblePosition, vitesse * Time.deltaTime);
+        animator.SetFloat("Vitesse", Mathf.Abs(vitesse));
 
         float difference = transform.position.x - cible.position.x;
 
@@ -48,6 +50,7 @@ public class RunnerMouvements : MonoBehaviour
 
     private void Saut()
     {
+        animator.SetBool("EnSaut", true);
         runnerRB.AddForce(new Vector2(0, HauteurDeSaut));
     }
 
@@ -56,6 +59,7 @@ public class RunnerMouvements : MonoBehaviour
         if (collision.CompareTag("Sol"))
         {
             Saut();
+            animator.SetBool("EnSaut", false);
         }
     }
 }

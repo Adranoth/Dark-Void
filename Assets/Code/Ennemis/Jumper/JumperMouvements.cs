@@ -19,6 +19,7 @@ public class JumperMouvements : MonoBehaviour
     float distanceDuJoueur;
 
     private Rigidbody2D jumperRB;
+    public Animator animator;
 
 
 
@@ -56,6 +57,7 @@ public class JumperMouvements : MonoBehaviour
     {
         if (auSol)
         {
+            animator.SetBool("EnSaut", true);
             auSol = false;
             jumperRB.AddForce(new Vector2(distanceDuJoueur * sautCoefficientX, hauteurSaut), ForceMode2D.Impulse);
         }
@@ -73,6 +75,7 @@ public class JumperMouvements : MonoBehaviour
         if (collision.gameObject.CompareTag("Sol"))
         {
             auSol = true;
+            animator.SetBool("EnSaut", false);
         }
     }
 }
