@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class PersonnageLampe : MonoBehaviour
 {
+    public Inventaire inventaire;
+
     public GameObject lumiere;
-    public bool lampeAcquise = false;
     public bool estAllume = false;
     
     void Start()
@@ -15,7 +16,7 @@ public class PersonnageLampe : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.X) && lampeAcquise)
+        if (Input.GetKeyDown(KeyCode.X) && inventaire.lampeAcquise)
         {
             LumiereSwitch();
         }

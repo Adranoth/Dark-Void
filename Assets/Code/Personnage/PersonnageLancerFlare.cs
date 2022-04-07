@@ -4,20 +4,15 @@ using UnityEngine;
 
 public class PersonnageLancerFlare : MonoBehaviour
 {
+    public Inventaire inventaire;
+
     public Transform sortieDuFlare;
     public GameObject flarePrefab;
-    public int nbFlareMax = 6;
-    public int nbFlareActuel;
     public Animator animator;
-
-    private void Start()
-    {
-        nbFlareActuel = nbFlareMax;
-    }
 
     void Update()
     {
-        if ((Input.GetButtonDown("Fire2")) && nbFlareActuel > 0)
+        if ((Input.GetButtonDown("Fire2")) && inventaire.nbFlareActuels > 0)
         {
             animator.SetTrigger("Lance");
             Tirer();
@@ -31,7 +26,7 @@ public class PersonnageLancerFlare : MonoBehaviour
     void Tirer()
     {
         Instantiate(flarePrefab, sortieDuFlare.position, sortieDuFlare.rotation);
-        nbFlareActuel -= 1;
+        inventaire.nbFlareActuels -= 1;
     }
 }
 

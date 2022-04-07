@@ -5,14 +5,14 @@ using UnityEngine;
 public class JetpackRecup : MonoBehaviour
 {
 
-    public PersonnageMouvements personnageMouvements;
+    public Inventaire inventaire;
     public SpriteRenderer spriteRenderer;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Joueur"))
         {
-            personnageMouvements.jetpackAcquis = true;
+            inventaire.jetpackAcquis = true;
             spriteRenderer.enabled = true;
             Destroy(gameObject);
         }

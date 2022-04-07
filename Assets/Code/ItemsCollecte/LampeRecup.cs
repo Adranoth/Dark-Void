@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class LampeRecup : MonoBehaviour
 {
-    public PersonnageLampe personnageLampe;
-    public BrasLampe brasLampe;
+    public Inventaire inventaire;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Joueur"))
         {
-            personnageLampe.lampeAcquise = true;
-            brasLampe.lampeAcquise = true;
+            inventaire.lampeAcquise = true;
             Destroy(gameObject);
         }
     }

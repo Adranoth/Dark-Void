@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class PersonnageMouvements : MonoBehaviour
 {
+    public Inventaire inventaire;
+
     public Rigidbody2D personnageRb;
     public float linearDragAuSol = 0f;
     public float linearDragJetpack = 10f;
@@ -23,7 +25,6 @@ public class PersonnageMouvements : MonoBehaviour
     bool enSaut;
     bool auSol = true;
 
-    public bool jetpackAcquis = false;
     bool jetpackActive = false;
     public float dureeMaxDeJetpack = 3f;
     public float jetpackCD = 10f;
@@ -90,7 +91,7 @@ public class PersonnageMouvements : MonoBehaviour
 
     private void Jetpack()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && !auSol && !enSaut && jetpackAcquis && !jetpackEnCD)
+        if (Input.GetKeyDown(KeyCode.Space) && !auSol && !enSaut && inventaire.jetpackAcquis && !jetpackEnCD)
         {
             enSaut = false;
             tempsDeJetpack = 0;
