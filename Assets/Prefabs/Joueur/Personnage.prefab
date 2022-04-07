@@ -954,7 +954,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 839fbd4f77dda2148ac7c6dfbc664e3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventaire: {fileID: 0}
+  inventaire: {fileID: 7403852495647343099}
   spriteRenderer: {fileID: 723380927552096456}
   newSprite: {fileID: 21300000, guid: e500cad0eb4f2984a9bde10455918993, type: 3}
 --- !u!1 &723380927553499910
@@ -1534,10 +1534,12 @@ MonoBehaviour:
   nbFlareMax: 6
   nbFlareActuels: 6
   munitionsMax: 60
-  munitionsActuelles: 60
+  munitionsActuelle: 0
   chargeursMax: 4
   chargeursActuels: 4
   nbMediKitsMax: 2
   nbMediKitsActuels: 2
   jetpackAcquis: 0
   lampeAcquise: 0
+  pateACloneMax: 9999
+  pateACloneActuelle: 0

@@ -10,7 +10,7 @@ public class Inventaire : MonoBehaviour
 
     //Gestion des munitions
     public int munitionsMax = 60;
-    public int munitionsActuelles;
+    public int munitionsActuelle;
     public int chargeursMax = 4;
     public int chargeursActuels;
 
@@ -23,4 +23,8 @@ public class Inventaire : MonoBehaviour
 
     //Lampe
     public bool lampeAcquise = false;
+
+    //Gestion de la pate a clone
+    public int pateACloneMax = 9999;
+    public int pateACloneActuelle;
 }

@@ -40,6 +40,16 @@ public class Balle : MonoBehaviour
                 Destroy(gameObject);
                 return;
             }
+
+            FlyerVie flyer = collision.GetComponent<FlyerVie>();
+            //Est-ce un flyer ?
+            if (flyer != null)
+            {
+                flyer.PrendreDegats(degats);
+                Instantiate(sang, transform.position, transform.rotation);
+                Destroy(gameObject);
+                return;
+            }
         }
 
         if (collision.CompareTag("Joueur") || collision.CompareTag("Checkpoint"))

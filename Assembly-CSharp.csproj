@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <LangVersion>8.0</LangVersion>
+    <LangVersion>9.0</LangVersion>
   </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -115,7 +115,10 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_B.cs" />
     <Compile Include="Assets\Code\Personnage\BrasLampe.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
-    <Compile Include="Assets\PersonnageInteraction.cs" />
+    <Compile Include="Assets\Code\Ennemis\Flyer\FlyerAnimation.cs" />
+    <Compile Include="Assets\Code\Ennemis\Flyer\FlyerAttaque.cs" />
+    <Compile Include="Assets\Code\Ennemis\Flyer\FlyerFlip.cs" />
+    <Compile Include="Assets\Code\Ennemis\Flyer\FlyerVie.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

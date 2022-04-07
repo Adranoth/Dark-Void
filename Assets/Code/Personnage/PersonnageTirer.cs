@@ -18,7 +18,7 @@ public class PersonnageTirer : MonoBehaviour
 
     private void Start()
     {
-        CompteurMun.text = inventaire.munitionsActuelles.ToString();
+        CompteurMun.text = inventaire.munitionsActuelle.ToString();
 
         recharge = false;
     }
@@ -45,14 +45,14 @@ public class PersonnageTirer : MonoBehaviour
 
     void Recharger()
     {
-        if (inventaire.chargeursActuels == 0 || (inventaire.munitionsActuelles == inventaire.munitionsMax))
+        if (inventaire.chargeursActuels == 0 || (inventaire.munitionsActuelle == inventaire.munitionsMax))
         {
             return;
         }
         else
         {
-            inventaire.munitionsActuelles = inventaire.munitionsMax;
-            CompteurMun.text = inventaire.munitionsActuelles.ToString();
+            inventaire.munitionsActuelle = inventaire.munitionsMax;
+            CompteurMun.text = inventaire.munitionsActuelle.ToString();
             inventaire.chargeursActuels -= 1;
             StartCoroutine(EnRecharge());
         }
@@ -60,15 +60,15 @@ public class PersonnageTirer : MonoBehaviour
 
     void Tirer()
     {
-        if (inventaire.munitionsActuelles == 0 || recharge)
+        if (inventaire.munitionsActuelle == 0 || recharge)
         {
             return;
         }
         else
         {
             Instantiate(ballePrefab, sortieDeLaBalle.position, sortieDeLaBalle.rotation);
-            inventaire.munitionsActuelles -= 1;
-            CompteurMun.text = inventaire.munitionsActuelles.ToString();
+            inventaire.munitionsActuelle -= 1;
+            CompteurMun.text = inventaire.munitionsActuelle.ToString();
         }
     }
 }
