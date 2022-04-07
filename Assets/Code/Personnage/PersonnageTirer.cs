@@ -12,7 +12,6 @@ public class PersonnageTirer : MonoBehaviour
 
     public TextMeshProUGUI CompteurMun;
 
-    public TextMeshProUGUI CompteurCharg;
 
     public float rechargementDuree = 3f;
     private bool recharge;
@@ -20,8 +19,6 @@ public class PersonnageTirer : MonoBehaviour
     private void Start()
     {
         CompteurMun.text = inventaire.munitionsActuelles.ToString();
-
-        CompteurCharg.text = inventaire.chargeursActuels.ToString();
 
         recharge = false;
     }
@@ -57,7 +54,6 @@ public class PersonnageTirer : MonoBehaviour
             inventaire.munitionsActuelles = inventaire.munitionsMax;
             CompteurMun.text = inventaire.munitionsActuelles.ToString();
             inventaire.chargeursActuels -= 1;
-            CompteurCharg.text = inventaire.chargeursActuels.ToString();
             StartCoroutine(EnRecharge());
         }
     }

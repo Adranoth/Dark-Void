@@ -15,7 +15,7 @@ public class PersonnageMouvements : MonoBehaviour
     public Animator personnage;
     public Animator jetpack;
 
-    bool faceADroite = true;
+    public bool faceADroite = true;
 
     public float vitesse = 15;
 

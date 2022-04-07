@@ -9,6 +9,7 @@ TagManager:
   - Ennemi
   - Appat
   - Checkpoint
+  - Interaction
   layers:
   - Default
   - TransparentFX
