@@ -72,6 +72,7 @@
     <Compile Include="Assets\Code\UI\CompteurDeMunitions.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextInfoDebugTool.cs" />
     <Compile Include="Assets\Code\Personnage\PersonnageMouvements.cs" />
+    <Compile Include="Assets\Code\UI\Inventaire.cs" />
     <Compile Include="Assets\Code\Ennemis\Runner\RunnerAnimation.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_DigitValidator.cs" />
     <Compile Include="Assets\Code\ItemsCollecte\LampeRecup.cs" />
@@ -114,7 +115,10 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_B.cs" />
     <Compile Include="Assets\Code\Personnage\BrasLampe.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
-    <Compile Include="Assets\Code\UI\Inventaire.cs" />
+    <Compile Include="Assets\Code\Ennemis\Flyer\FlyerAnimation.cs" />
+    <Compile Include="Assets\Code\Ennemis\Flyer\FlyerAttaque.cs" />
+    <Compile Include="Assets\Code\Ennemis\Flyer\FlyerFlip.cs" />
+    <Compile Include="Assets\Code\Ennemis\Flyer\FlyerVie.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

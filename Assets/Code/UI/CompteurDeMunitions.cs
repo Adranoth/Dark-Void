@@ -15,6 +15,6 @@ public class CompteurDeMunitions : MonoBehaviour
 
     void Update()
     {
-        nbDeMunitions.text = inventaire.munitionsActuelles.ToString();
+        nbDeMunitions.text = inventaire.munitionsActuelle.ToString();
     }
 }
