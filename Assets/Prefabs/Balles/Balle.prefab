@@ -138,3 +138,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vitesse: 50
   degats: 10
+  sang: {fileID: 3203420540650235935, guid: 55d5c6f57bbd51f4bbb2b579ce8daa60, type: 3}

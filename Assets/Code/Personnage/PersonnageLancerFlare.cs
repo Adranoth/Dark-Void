@@ -19,7 +19,7 @@ public class PersonnageLancerFlare : MonoBehaviour
     {
         if ((Input.GetButtonDown("Fire2")) && nbFlareActuel > 0)
         {
-            animator.SetBool("Lance", true);
+            animator.SetTrigger("Lance");
             Tirer();
         }
         else
@@ -31,7 +31,6 @@ public class PersonnageLancerFlare : MonoBehaviour
     void Tirer()
     {
         Instantiate(flarePrefab, sortieDuFlare.position, sortieDuFlare.rotation);
-        animator.SetBool("Lance", false);
         nbFlareActuel -= 1;
     }
 }

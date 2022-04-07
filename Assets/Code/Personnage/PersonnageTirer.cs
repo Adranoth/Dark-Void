@@ -10,6 +10,8 @@ public class PersonnageTirer : MonoBehaviour
     public int MunitionsMax = 60;
     public int MunitionsActuelles;
     public TextMeshProUGUI Compteur;
+    public AudioSource tirer;
+    public AudioSource PlusDeMunitions;
 
     private void Start()
     {
@@ -29,13 +31,14 @@ public class PersonnageTirer : MonoBehaviour
     {
         if (MunitionsActuelles == 0)
         {
-            return;
+            PlusDeMunitions.Play();
         }
         else
         {
             Instantiate(ballePrefab, sortieDeLaBalle.position, sortieDeLaBalle.rotation);
             MunitionsActuelles -= 1;
             Compteur.text = MunitionsActuelles.ToString();
+            tirer.Play();
         }
     }
 }

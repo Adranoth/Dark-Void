@@ -8,10 +8,12 @@ public class Balle : MonoBehaviour
     public float vitesse = 50f;
     public int degats = 10;
     private Rigidbody2D rb;
+    public GameObject sang;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = transform.right * vitesse;
+        sang.GetComponent<ParticleSystem>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -24,6 +26,7 @@ public class Balle : MonoBehaviour
             if(runner != null)
             {
                 runner.PrendreDegats(degats);
+                Instantiate(sang, transform.position, transform.rotation);
                 Destroy(gameObject);
                 return;
             }
@@ -33,6 +36,7 @@ public class Balle : MonoBehaviour
             if (jumper != null)
             {
                 jumper.PrendreDegats(degats);
+                Instantiate(sang, transform.position, transform.rotation);
                 Destroy(gameObject);
                 return;
             }
