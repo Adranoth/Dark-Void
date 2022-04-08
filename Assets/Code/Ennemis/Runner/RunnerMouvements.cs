@@ -58,8 +58,11 @@ public class RunnerMouvements : MonoBehaviour
     {
         if (collision.CompareTag("Sol"))
         {
-            Saut();
             animator.SetBool("EnSaut", false);
+        }
+        else if (collision.CompareTag("Mur"))
+        {
+            Saut();
         }
     }
 }

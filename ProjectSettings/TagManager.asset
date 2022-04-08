@@ -10,6 +10,7 @@ TagManager:
   - Appat
   - Checkpoint
   - Interaction
+  - Mur
   layers:
   - Default
   - TransparentFX
@@ -20,9 +21,9 @@ TagManager:
   - Obstacles
   - Joueur
   - Interaction
-  - 
-  - 
-  - 
+  - Runner
+  - Jumper
+  - Flyer
   - 
   - 
   - 

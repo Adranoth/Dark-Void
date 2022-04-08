@@ -68,7 +68,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\CameraController.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMPro_InstructionOverlay.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_ExampleScript_01.cs" />
-    <Compile Include="Assets\PersonnageInteraction.cs" />
+    <Compile Include="Assets\Code\Personnage\PersonnageInteraction.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextConsoleSimulator.cs" />
     <Compile Include="Assets\Code\UI\CompteurDeMunitions.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextInfoDebugTool.cs" />
@@ -120,6 +120,8 @@
     <Compile Include="Assets\Code\Personnage\BrasLampe.cs" />
     <Compile Include="Assets\Code\Ennemis\Flyer\FlyerFlip.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
+    <Compile Include="Assets\Code\Ennemis\Runner\RunnerAggro.cs" />
+    <Compile Include="Assets\Code\Ennemis\Jumper\JumperAggro.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
