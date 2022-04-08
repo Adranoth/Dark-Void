@@ -54,6 +54,7 @@ public class PersonnageTirer : MonoBehaviour
             inventaire.munitionsActuelle = inventaire.munitionsMax;
             CompteurMun.text = inventaire.munitionsActuelle.ToString();
             inventaire.chargeursActuels -= 1;
+            inventaire.chargeur.text = inventaire.chargeursActuels.ToString();
             StartCoroutine(EnRecharge());
         }
     }
