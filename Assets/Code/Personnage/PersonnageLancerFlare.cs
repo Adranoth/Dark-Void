@@ -27,6 +27,7 @@ public class PersonnageLancerFlare : MonoBehaviour
     {
         Instantiate(flarePrefab, sortieDuFlare.position, sortieDuFlare.rotation);
         inventaire.nbFlareActuels -= 1;
+        inventaire.fusee.text = inventaire.nbFlareActuels.ToString();
     }
 }
 
