@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PersonnageVie : MonoBehaviour
 {
+    public Inventaire inventaire;
 
     public SpriteRenderer graphiques;
     public float flashIntervalle = 0.1f;
@@ -12,6 +13,8 @@ public class PersonnageVie : MonoBehaviour
     public Transform vaisseau;
 
     public GameObject ecranDeMort;
+    public GameObject UIInfos;
+
 
     public int vieMax = 100;
     public int vieActuelle;
@@ -22,7 +25,6 @@ public class PersonnageVie : MonoBehaviour
 
     void Start()
     {
-        vieActuelle = vieMax;
         transform.position = checkpoint.position;
         bardevie.MetVieMax(vieMax);
     }
@@ -38,9 +40,12 @@ public class PersonnageVie : MonoBehaviour
             bardevie.MetVie(vieActuelle);
         }
 
+
         if(vieActuelle <= 0)
         {
             ecranDeMort.SetActive(true);
+            ecranDeMort.GetComponent<EcranDeMort>().pateAClone = inventaire.pateACloneActuelle;
+            UIInfos.SetActive(false);
             gameObject.SetActive(false);
         }
     }
