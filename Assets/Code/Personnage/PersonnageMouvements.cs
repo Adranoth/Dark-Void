@@ -17,7 +17,8 @@ public class PersonnageMouvements : MonoBehaviour
 
     bool faceADroite = true;
 
-    public float vitesse = 15;
+    public float vitesseMax = 20;
+    public float vitesse = 18;
 
     public float dureeMaxDeSaut = 0.3f;
     public float forceDeSaut = 30;

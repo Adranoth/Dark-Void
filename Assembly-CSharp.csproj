@@ -80,6 +80,7 @@
     <Compile Include="Assets\Code\UI\EcranDeMort.cs" />
     <Compile Include="Assets\Code\Ennemis\Jumper\JumperVie.cs" />
     <Compile Include="Assets\Code\Ennemis\Jumper\JumperAttaque.cs" />
+    <Compile Include="Assets\Code\Ennemis\Flyer\FlyerVie.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexJitter.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventHandler.cs" />
     <Compile Include="Assets\Code\Personnage\PersonnageVie.cs" />
@@ -109,16 +110,15 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\WarpTextExample.cs" />
     <Compile Include="Assets\Code\Ennemis\Runner\RunnerMouvements.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />
+    <Compile Include="Assets\Code\Ennemis\Flyer\FlyerAnimation.cs" />
+    <Compile Include="Assets\Code\Ennemis\Flyer\FlyerAttaque.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />
     <Compile Include="Assets\Code\Personnage\PersonnageLampe.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_FrameRateCounter.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_B.cs" />
     <Compile Include="Assets\Code\Personnage\BrasLampe.cs" />
-    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
-    <Compile Include="Assets\Code\Ennemis\Flyer\FlyerAnimation.cs" />
-    <Compile Include="Assets\Code\Ennemis\Flyer\FlyerAttaque.cs" />
     <Compile Include="Assets\Code\Ennemis\Flyer\FlyerFlip.cs" />
-    <Compile Include="Assets\Code\Ennemis\Flyer\FlyerVie.cs" />
+    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
