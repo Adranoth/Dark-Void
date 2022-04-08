@@ -125,6 +125,8 @@ public class EcranDeMort : MonoBehaviour
         {
             boutonB.interactable = true;
         }
+
+        boutonC.interactable = true;
     }
 
 }
