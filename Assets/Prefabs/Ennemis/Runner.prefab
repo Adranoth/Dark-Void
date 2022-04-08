@@ -400,7 +400,7 @@ GameObject:
   - component: {fileID: 6507279809099264177}
   - component: {fileID: 6507279809099264175}
   - component: {fileID: 6507279809099264174}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: BoxDAttaque
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -49,6 +49,7 @@ GameObject:
   - component: {fileID: 723380926130433943}
   - component: {fileID: 723380927528739068}
   - component: {fileID: 723380927528739069}
+  - component: {fileID: 931458518573735419}
   m_Layer: 7
   m_Name: Personnage
   m_TagString: Joueur
@@ -211,11 +212,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0da5c08625643354c848ffb05e04314a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inventaire: {fileID: 0}
   graphiques: {fileID: 723380926130433963}
   flashIntervalle: 0.1
   checkpoint: {fileID: 0}
   vaisseau: {fileID: 0}
   ecranDeMort: {fileID: 0}
+  UIInfos: {fileID: 0}
   vieMax: 100
   vieActuelle: 0
   bardevie: {fileID: 0}
@@ -242,6 +245,7 @@ MonoBehaviour:
   personnage: {fileID: 723380926130433944}
   jetpack: {fileID: 1751113549455495149}
   faceADroite: 1
+  vitesseMax: 20
   vitesse: 15
   dureeMaxDeSaut: 0.15
   forceDeSaut: 26
@@ -295,6 +299,21 @@ MonoBehaviour:
   ballePrefab: {fileID: 7174439026476713713, guid: 6eee5a3efb960c548af21ca8ac3da405, type: 3}
   CompteurMun: {fileID: 0}
   rechargementDuree: 3
+--- !u!114 &931458518573735419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 723380926130433962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3279c51ef47a7141b89f9e503d90dc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interaction: 0
+  texte: {fileID: 3601478445878593842}
+  flip: {fileID: 723380926130433940}
 --- !u!1 &723380926455933908
 GameObject:
   m_ObjectHideFlags: 0
@@ -478,7 +497,7 @@ MonoBehaviour:
   m_Intensity: 2
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
-  m_ApplyToSortingLayers: 00000000
+  m_ApplyToSortingLayers: 9565263225dbb71000000000dfb13580
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -1002,7 +1021,7 @@ GameObject:
   - component: {fileID: 1751113549455495138}
   - component: {fileID: 1751113549455495149}
   m_Layer: 7
-  m_Name: Jetpack
+  m_Name: Jetpack - Personnage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

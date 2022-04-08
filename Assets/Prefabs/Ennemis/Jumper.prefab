@@ -233,7 +233,7 @@ GameObject:
   - component: {fileID: 6672000860000260131}
   - component: {fileID: 6672000860000260140}
   - component: {fileID: 6672000860000260141}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: BoxDAttaque
   m_TagString: Untagged
   m_Icon: {fileID: 0}
