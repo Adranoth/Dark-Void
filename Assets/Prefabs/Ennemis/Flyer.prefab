@@ -273,6 +273,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vieMax: 75
   vieActuelle: 0
+  pateAClonePrefab: {fileID: 4285091410410052405, guid: b04610c8c6c302b45b984009e244d06b, type: 3}
 --- !u!1 &466196550494658617
 GameObject:
   m_ObjectHideFlags: 0

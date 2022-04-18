@@ -6,6 +6,7 @@ public class JumperVie : MonoBehaviour
 {
     public int vieMax = 100;
     public int vieActuelle;
+    public GameObject pateAClonePrefab;
 
     void Awake()
     {
@@ -19,6 +20,7 @@ public class JumperVie : MonoBehaviour
 
         if (vieActuelle <= 0)
         {
+            Instantiate(pateAClonePrefab, transform.position, transform.rotation);
             Destroy(gameObject);
         }
     }

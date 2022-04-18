@@ -153,6 +153,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vieMax: 100
   vieActuelle: 0
+  pateAClonePrefab: {fileID: 4285091410410052405, guid: b04610c8c6c302b45b984009e244d06b, type: 3}
 --- !u!114 &2996598497005967447
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -166,6 +167,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vitesse: 10
+  vitesseObscurite: 12.5
+  vitesseLumiere: 7.5
   HauteurDeSaut: 1500
   cible: {fileID: 0}
   animator: {fileID: 4078715583468709589}

@@ -7,11 +7,13 @@ public class PersonnageLampe : MonoBehaviour
     public Inventaire inventaire;
 
     public GameObject lumiere;
+    public GameObject collision;
     public bool estAllume = false;
     
     void Start()
     {
         lumiere.SetActive(estAllume);
+        collision.SetActive(estAllume);
     }
 
     void Update()
@@ -26,5 +28,6 @@ public class PersonnageLampe : MonoBehaviour
     {
         estAllume = !estAllume;
         lumiere.SetActive(estAllume);
+        collision.SetActive(estAllume);
     }
 }

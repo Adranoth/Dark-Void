@@ -37,6 +37,11 @@ public class Inventaire : MonoBehaviour
     public TextMeshProUGUI pateAClone;
     public GameObject inventaire;
 
+    //Gestion des Audiologs
+    public bool audio1;
+    public bool audio2;
+    public bool audio3;
+
     //Allumer/Éteindre inventaire
     bool InventaireAllume;
     public GameObject lumiere;

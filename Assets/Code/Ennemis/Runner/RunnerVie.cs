@@ -6,6 +6,7 @@ public class RunnerVie : MonoBehaviour
 {
     public int vieMax = 100;
     public int vieActuelle;
+    public GameObject pateAClonePrefab;
 
     void Awake()
     {
@@ -20,6 +21,7 @@ public class RunnerVie : MonoBehaviour
         if (vieActuelle <= 0)
         {
             Destroy(gameObject);
+            Instantiate(pateAClonePrefab, transform.position, transform.rotation);
         }
     }
 }

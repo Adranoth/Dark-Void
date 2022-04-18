@@ -6,6 +6,8 @@ public class RunnerMouvements : MonoBehaviour
 {
 
     public float vitesse;
+    public float vitesseObscurite;
+    public float vitesseLumiere;
     public float HauteurDeSaut;
 
     private bool faceAGauche = true;
@@ -16,7 +18,6 @@ public class RunnerMouvements : MonoBehaviour
     private Rigidbody2D runnerRB;
     public Animator animator;
     
-
 
     void Start()
     {
@@ -38,6 +39,11 @@ public class RunnerMouvements : MonoBehaviour
         if(difference <= -0.01f && faceAGauche)
         {
             Flip();
+        }
+
+        if (FindObjectOfType<Inventaire>().audio1 == true)
+        {
+            vitesse = vitesseObscurite;
         }
     }
 
@@ -63,6 +69,29 @@ public class RunnerMouvements : MonoBehaviour
         else if (collision.CompareTag("Mur"))
         {
             Saut();
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Lumiere") && FindObjectOfType<Inventaire>().audio1 == true)
+        {
+            vitesse = vitesseLumiere;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Lumiere"))
+        {
+            if (FindObjectOfType<Inventaire>().audio1 == true)
+            {
+                vitesse = vitesseObscurite;
+            }
+            else
+            {
+                vitesse = vitesse;
+            }
         }
     }
 }

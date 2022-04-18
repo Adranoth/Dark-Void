@@ -20,6 +20,8 @@ public class EcranDeMort : MonoBehaviour
     public int pateAClone;
 
     public bool respawnCheckpoint;
+    public Animator animator;
+
 
     void OnEnable()
     {
@@ -55,6 +57,9 @@ public class EcranDeMort : MonoBehaviour
                 if(respawnCheckpoint)
                 {
                     inventaire.pateACloneActuelle -= 1500;
+                    animator.SetBool("Classe B", true);
+                    animator.SetBool("Classe C", false);
+                    animator.SetBool("Classe D", false);
                     break;
                 }
                 inventaire.pateACloneActuelle -= 1000;
@@ -64,12 +69,18 @@ public class EcranDeMort : MonoBehaviour
                 vitesseCoef = 0.90f;
                 if (respawnCheckpoint)
                 {
+                    animator.SetBool("Classe B", false);
+                    animator.SetBool("Classe C", true);
+                    animator.SetBool("Classe D", false);
                     inventaire.pateACloneActuelle -= 500;
                 }
                 break;
             case 2:
                 vieCoef = 0.25f;
                 vitesseCoef = 0.75f;
+                animator.SetBool("Classe B", false);
+                animator.SetBool("Classe C", false);
+                animator.SetBool("Classe D", true);
                 break;
             default:
                 vieCoef = 0.75f;

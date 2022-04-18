@@ -102,7 +102,7 @@ MonoBehaviour:
   hauteurSaut: 40
   distanceDeSaut: 10
   sautCoefficientX: 2
-  animator: {fileID: 0}
+  animator: {fileID: 813669072457454933}
 --- !u!114 &873272250313680613
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -117,6 +117,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vieMax: 50
   vieActuelle: 0
+  pateAClonePrefab: {fileID: 4285091410410052405, guid: b04610c8c6c302b45b984009e244d06b, type: 3}
 --- !u!1 &873272251269956424
 GameObject:
   m_ObjectHideFlags: 0
@@ -127,7 +128,7 @@ GameObject:
   m_Component:
   - component: {fileID: 873272251269956425}
   - component: {fileID: 873272251269956431}
-  - component: {fileID: 873272251269956430}
+  - component: {fileID: 813669072457454933}
   m_Layer: 10
   m_Name: JumperGFX
   m_TagString: Untagged
@@ -202,7 +203,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &873272251269956430
+--- !u!95 &813669072457454933
 Animator:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -212,7 +213,7 @@ Animator:
   m_GameObject: {fileID: 873272251269956424}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a1bf8cfbf6a54e34ea166c1ca3632cc2, type: 2}
+  m_Controller: {fileID: 9100000, guid: 4d77434dd0e30be40a70ac0dd17ebd8e, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
