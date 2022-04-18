@@ -92,17 +92,17 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 873272250313680603}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 126794a894bfd4049858aa4806a700e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   vitesse: 5
-  cible: {fileID: 687641196765495968, guid: 9219a4d101fb2ab418d43fe0f1570894, type: 3}
+  cible: {fileID: 0}
   hauteurSaut: 40
   distanceDeSaut: 10
   sautCoefficientX: 2
-  animator: {fileID: 0}
+  animator: {fileID: 873272251269956430}
 --- !u!114 &873272250313680613
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -212,7 +212,7 @@ Animator:
   m_GameObject: {fileID: 873272251269956424}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a1bf8cfbf6a54e34ea166c1ca3632cc2, type: 2}
+  m_Controller: {fileID: 9100000, guid: 4d77434dd0e30be40a70ac0dd17ebd8e, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -308,7 +308,7 @@ GameObject:
   - component: {fileID: 88226819289842984}
   m_Layer: 8
   m_Name: Aire d'Aggro
-  m_TagString: Untagged
+  m_TagString: Aggro
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

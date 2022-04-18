@@ -52,7 +52,7 @@ public class Balle : MonoBehaviour
             }
         }
 
-        if (collision.CompareTag("Joueur") || collision.CompareTag("Checkpoint"))
+        if (collision.CompareTag("Joueur") || collision.CompareTag("Checkpoint") || collision.CompareTag("Aggro"))
         {
             return;
         }
