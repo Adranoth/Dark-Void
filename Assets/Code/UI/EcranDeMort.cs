@@ -97,7 +97,9 @@ public class EcranDeMort : MonoBehaviour
             joueur.transform.position = personnageVie.vaisseau.position;
         }
 
-        personnageVie.vieActuelle = (int) ((float) personnageVie.vieMax * vieCoef);
+        int vie = (int)((float)personnageVie.vieMax * vieCoef);
+        personnageVie.vieActuelle = vie;
+        personnageVie.bardevie.MetVie(vie);
         personnageMouvements.vitesse = personnageMouvements.vitesseMax * vitesseCoef;
         personnageVie.estInvincible = false;
         personnageVie.graphiques.color = new Color(1f, 1f, 1f, 1f);

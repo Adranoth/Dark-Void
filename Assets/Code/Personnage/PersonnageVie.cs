@@ -27,6 +27,7 @@ public class PersonnageVie : MonoBehaviour
     {
         transform.position = checkpoint.position;
         bardevie.MetVieMax(vieMax);
+        bardevie.MetVie(vieActuelle);
     }
 
     public void PrendreDegats(int degats)
