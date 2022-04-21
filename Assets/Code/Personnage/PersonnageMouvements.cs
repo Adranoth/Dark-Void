@@ -29,13 +29,15 @@ public class PersonnageMouvements : MonoBehaviour
     bool auSol = true;
 
     bool jetpackActive = false;
-    public float dureeMaxDeJetpack = 5f;
     public float jetpackCD = 5f;
-    float tempsDeJetpack;
-    float tempsDeJetpackCD;
-    public float essence;
-    public float essenceMax;
+    public float essence = 1;
+    public float essenceMax ;
     bool jetpackEnCD = false;
+    public GameObject lumiere1;
+    public GameObject lumiere2;
+    public GameObject lumiere3;
+    public GameObject jetpackAudio;
+    public GameObject feu;
 
     AudioSource audiosource;
     public AudioClip pas;
@@ -46,7 +48,7 @@ public class PersonnageMouvements : MonoBehaviour
     private void Start()
     {
         audiosource = GetComponent<AudioSource>();
-        essence = essenceMax;
+        essence = 0;
     }
 
     void FixedUpdate()
@@ -58,18 +60,45 @@ public class PersonnageMouvements : MonoBehaviour
     {
         Saut();
         Jetpack();
-        if (jetpackActive)
+        if (jetpackActive == false)
+        {
+            essence += Time.deltaTime;
+            if (essence > 3.33)
+            {
+                lumiere3.SetActive(true);
+                if (essence > 6.66)
+                {
+                    lumiere2.SetActive(true);
+                    if (essence > essenceMax)
+                    {
+                        essence = essenceMax;
+                        lumiere1.SetActive(true);
+                    }
+                }
+            }
+        }
+        else
         {
             essence -= Time.deltaTime;
-            if (essence < 0)
+            if (essence < 6.66)
             {
-                essence = 0;
-                jetpackActive = false;
-                jetpackEnCD = true;
-            }
-            else if (essence < essenceMax)
-            {
-                essence += Time.deltaTime;
+                lumiere1.SetActive(false);
+                if (essence < 3.33)
+                {
+                    lumiere2.SetActive(false);
+                    if (essence < 0)
+                    {
+                        essence = 0;
+                        lumiere3.SetActive(false);
+                        feu.SetActive(false);
+                        jetpackActive = false;
+                        jetpackEnCD = true;
+                        personnageRb.drag = linearDragAuSol;
+                        personnageRb.gravityScale = graviteAuSol;
+                        jetpack.SetBool("EstAllume", false);
+                        jetpackAudio.GetComponent<AudioSource>().Stop();
+                    }
+                }
             }
         }
     }
@@ -117,39 +146,68 @@ public class PersonnageMouvements : MonoBehaviour
 
         transform.Rotate(0f, 180f, 0f);
     }
-
+    /*
     private void Jetpack()
     {
         if (Input.GetKeyDown(KeyCode.Space) && !auSol && !enSaut && inventaire.jetpackAcquis && !jetpackEnCD)
         {
             enSaut = false;
-            //tempsDeJetpack = 0;
+            tempsDeJetpack = 0;
             jetpackActive = true;
             personnageRb.drag = linearDragJetpack;
             personnageRb.gravityScale = graviteJetpack;
             jetpack.SetBool("EstAllume", true);
         }
-        // if (jetpackActive)
+         if (jetpackActive)
          {
             tempsDeJetpack += Time.deltaTime;
          }
-        //tempsDeJetpack > dureeMaxDeJetpack)
-        if ((Input.GetKeyUp(KeyCode.Space) && !jetpackEnCD && jetpackActive))
+        
+        if ((Input.GetKeyUp(KeyCode.Space) && tempsDeJetpack > dureeMaxDeJetpack && !jetpackEnCD && jetpackActive))
         {
             jetpackActive = false;
-            //jetpackEnCD = true;
-            //tempsDeJetpackCD = 0;
+            jetpackEnCD = true;
+            tempsDeJetpackCD = 0;
             personnageRb.drag = linearDragAuSol;
             personnageRb.gravityScale = graviteAuSol;
             jetpack.SetBool("EstAllume", false);
         }
-       // if (jetpackEnCD)
+        if (jetpackEnCD)
         {
             tempsDeJetpackCD += Time.deltaTime;
         }
-       // if (tempsDeJetpack > jetpackCD)
+        if (tempsDeJetpack > jetpackCD)
         {
             jetpackEnCD = false;
+        }
+        if (essence == essenceMax)
+        {
+            jetpackEnCD = false;
+        }
+    }
+    */
+    
+    private void Jetpack()
+    {
+        if (Input.GetKeyDown(KeyCode.Space) && !auSol && !enSaut && inventaire.jetpackAcquis && !jetpackEnCD)
+        {
+            enSaut = false;
+            jetpackActive = true;
+            feu.SetActive(true);
+            jetpackAudio.GetComponent<AudioSource>().Play();
+            personnageRb.drag = linearDragJetpack;
+            personnageRb.gravityScale = graviteJetpack;
+            jetpack.SetBool("EstAllume", true);
+        }
+
+        if ((Input.GetKeyUp(KeyCode.Space) && !jetpackEnCD && jetpackActive))
+        {
+            jetpackActive = false;
+            jetpackAudio.GetComponent<AudioSource>().Stop();
+            personnageRb.drag = linearDragAuSol;
+            personnageRb.gravityScale = graviteAuSol;
+            jetpack.SetBool("EstAllume", false);
+            feu.SetActive(false);
         }
         if (essence == essenceMax)
         {

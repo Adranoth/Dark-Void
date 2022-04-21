@@ -58,6 +58,7 @@
   <ItemGroup>
     <Compile Include="Assets\Code\Personnage\PersonnageTirer.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_A.cs" />
+    <Compile Include="Assets\Code\Divers\EffetParallax.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeA.cs" />
     <Compile Include="Assets\Code\UI\BarDeVie.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshProFloatingText.cs" />
@@ -89,18 +90,22 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexJitter.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventHandler.cs" />
     <Compile Include="Assets\Code\Divers\Dialogues\NPC.cs" />
+    <Compile Include="Assets\Unity Store\Cave Background\Scripts\PixelPerfectCamera.cs" />
     <Compile Include="Assets\Code\Personnage\PersonnageVie.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\DropdownSample.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_PhoneNumberValidator.cs" />
     <Compile Include="Assets\Code\Ennemis\Runner\RunnerVie.cs" />
+    <Compile Include="Assets\Code\Divers\Gates\Gate1.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexColorCycler.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TeleType.cs" />
+    <Compile Include="Assets\Unity Store\Cave Background\Scripts\CameraMovements.cs" />
     <Compile Include="Assets\Code\Ennemis\Runner\RunnerAttaque.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\Code\Divers\pateACloneCollision.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SkewTextExample.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SimpleScript.cs" />
     <Compile Include="Assets\Code\Armes\Balle.cs" />
+    <Compile Include="Assets\Unity Store\Cave Background\Scripts\ParallaxLayer.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
     <Compile Include="Assets\Code\Personnage\PersonnageVisee.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark04.cs" />
@@ -130,11 +135,6 @@
     <Compile Include="Assets\Code\Ennemis\Flyer\FlyerFlip.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
     <Compile Include="Assets\Code\ItemsCollecte\pateAClone.cs" />
-    <Compile Include="Assets\Unity Store\Cave Background\Scripts\ParallaxLayer.cs" />
-    <Compile Include="Assets\Unity Store\Cave Background\Scripts\CameraMovements.cs" />
-    <Compile Include="Assets\Unity Store\Cave Background\Scripts\PixelPerfectCamera.cs" />
-    <Compile Include="Assets\Code\Divers\EffetParallax.cs" />
-    <Compile Include="Assets\Code\Divers\Gates\Gate1.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

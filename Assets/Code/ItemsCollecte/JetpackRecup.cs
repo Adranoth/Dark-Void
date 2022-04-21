@@ -6,14 +6,14 @@ public class JetpackRecup : MonoBehaviour
 {
 
     public Inventaire inventaire;
-    public SpriteRenderer spriteRenderer;
+    public GameObject jetpack;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Joueur"))
         {
             inventaire.jetpackAcquis = true;
-            spriteRenderer.enabled = true;
+            jetpack.SetActive(true);
             Destroy(gameObject);
         }
         
