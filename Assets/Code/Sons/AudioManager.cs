@@ -9,6 +9,7 @@ public class AudioManager : MonoBehaviour
 
     public Sons[] son;
     public static AudioManager instance;
+    public bool enCombatMusique;
 
     void Awake()
     {
@@ -45,5 +46,30 @@ public class AudioManager : MonoBehaviour
             return;
         }
         audio.source.Play();
+    }
+
+    public IEnumerator StartFade(string nom, float duration, float targetVolume)
+    {
+        Sons audio = Array.Find(son, sons => sons.nom == nom);
+
+        float currentTime = 0;
+        float start = audio.source.volume;
+        while (currentTime < duration)
+        {
+            currentTime += Time.deltaTime;
+            audio.source.volume = Mathf.Lerp(start, targetVolume, currentTime / duration);
+            yield return null;
+        }
+        yield break;
+    }
+
+    public void Stop(string nom)
+    {
+        Sons audio = Array.Find(son, sons => sons.nom == nom);
+        if (audio == null)
+        {
+            return;
+        }
+        audio.source.Stop();
     }
 }

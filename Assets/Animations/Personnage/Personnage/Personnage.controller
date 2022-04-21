@@ -223,7 +223,6 @@ AnimatorState:
   m_Transitions:
   - {fileID: 5293674593798692812}
   - {fileID: -7818341787746243060}
-  - {fileID: -1256812622008103673}
   - {fileID: 4280660962250197286}
   m_StateMachineBehaviours: []
   m_Position: {x: 50, y: 50, z: 0}
@@ -380,34 +379,6 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 0
---- !u!1101 &-1256812622008103673
-AnimatorStateTransition:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  m_Conditions:
-  - m_ConditionMode: 2
-    m_ConditionEvent: IsJumping
-    m_EventTreshold: 0
-  - m_ConditionMode: 4
-    m_ConditionEvent: Speed2
-    m_EventTreshold: 0.01
-  m_DstStateMachine: {fileID: 0}
-  m_DstState: {fileID: -5428507401217631469}
-  m_Solo: 0
-  m_Mute: 0
-  m_IsExit: 0
-  serializedVersion: 3
-  m_TransitionDuration: 0
-  m_TransitionOffset: 0
-  m_ExitTime: 0.75
-  m_HasExitTime: 0
-  m_HasFixedDuration: 0
-  m_InterruptionSource: 0
-  m_OrderedInterruption: 1
-  m_CanTransitionToSelf: 1
 --- !u!1102 &-749199157746419492
 AnimatorState:
   serializedVersion: 6
@@ -504,37 +475,37 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Speed2
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: IsJumping
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Classe C
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 1
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Classe D
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Classe B
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -1144,7 +1115,7 @@ AnimatorStateMachine:
     m_Position: {x: -100, y: -10, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 6847309931911714261}
-    m_Position: {x: 60, y: 150, z: 0}
+    m_Position: {x: -30, y: 170, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 3961484971913038480}
     m_Position: {x: -400, y: -230, z: 0}
@@ -1153,7 +1124,7 @@ AnimatorStateMachine:
     m_Position: {x: -400, y: 20, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -4043432259702679356}
-    m_Position: {x: -60, y: -360, z: 0}
+    m_Position: {x: -160, y: -360, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 5698994405914110447}
     m_Position: {x: -100, y: 450, z: 0}
@@ -1162,7 +1133,7 @@ AnimatorStateMachine:
     m_Position: {x: 230, y: 360, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 7458399118038159995}
-    m_Position: {x: -340, y: 310, z: 0}
+    m_Position: {x: -340, y: 250, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -5963266134169899874}
     m_Position: {x: 320, y: 120, z: 0}

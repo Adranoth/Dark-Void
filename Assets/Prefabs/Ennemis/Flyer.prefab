@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 1198007192}
   - component: {fileID: 1198007191}
   - component: {fileID: 1198007190}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: Aire d'Aggro
-  m_TagString: Aggro
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -115,6 +115,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aggro: {fileID: 466196549872314721}
+  enCombat: 0
+  joueur: {fileID: 0}
+  distance: 0
+  distance2: 0
+  source: {fileID: 0}
+  spotted: {fileID: 0}
+  monstres: []
 --- !u!1 &466196548694617971
 GameObject:
   m_ObjectHideFlags: 0
@@ -126,7 +133,7 @@ GameObject:
   - component: {fileID: 466196548694617973}
   - component: {fileID: 466196548694617972}
   - component: {fileID: 7857118231182488843}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: FlyerGFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -235,7 +242,7 @@ GameObject:
   - component: {fileID: 466196549872314726}
   - component: {fileID: 466196549872314727}
   - component: {fileID: 716651241}
-  m_Layer: 3
+  m_Layer: 11
   m_Name: Flyer
   m_TagString: Ennemi
   m_Icon: {fileID: 0}
@@ -374,6 +381,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vieMax: 75
   vieActuelle: 0
+  pateAClonePrefab: {fileID: 4285091410410052405, guid: b04610c8c6c302b45b984009e244d06b, type: 3}
 --- !u!114 &716651241
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -400,7 +408,7 @@ GameObject:
   - component: {fileID: 466196550494658618}
   - component: {fileID: 466196550494658620}
   - component: {fileID: 466196550494658621}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: BoxDAttaque
   m_TagString: Untagged
   m_Icon: {fileID: 0}

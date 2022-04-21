@@ -47,7 +47,7 @@ public class Inventaire : MonoBehaviour
     public GameObject lumiere;
     public GameObject personnage;
     public PersonnageMouvements direction;
-    private void Start()
+    private void Awake()
     {
         //Inventaire de Départ
         nbFlareActuels = nbFlareMax;

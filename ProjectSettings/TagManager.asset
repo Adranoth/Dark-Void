@@ -12,6 +12,8 @@ TagManager:
   - Interaction
   - Mur
   - Lumiere
+  - Aggro
+  - "Lumi\xE8re"
   layers:
   - Default
   - TransparentFX
@@ -46,6 +48,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Parallax
+    uniqueID: 4115297459
+    locked: 0
   - name: Background
     uniqueID: 841377173
     locked: 0

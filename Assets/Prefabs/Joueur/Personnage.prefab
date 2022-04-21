@@ -50,6 +50,7 @@ GameObject:
   - component: {fileID: 723380927528739068}
   - component: {fileID: 723380927528739069}
   - component: {fileID: 931458518573735419}
+  - component: {fileID: 9167510127295204156}
   m_Layer: 7
   m_Name: Personnage
   m_TagString: Joueur
@@ -168,7 +169,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.076805115, y: -0.06709814}
+  m_Offset: {x: -0.16752625, y: -0.10199094}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -179,7 +180,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.165657, y: 3.090541}
+  m_Size: {x: 0.9842148, y: 3.0207553}
   m_EdgeRadius: 0
 --- !u!95 &723380926130433944
 Animator:
@@ -213,7 +214,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0da5c08625643354c848ffb05e04314a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventaire: {fileID: 0}
+  inventaire: {fileID: 7403852495647343099}
   graphiques: {fileID: 723380926130433963}
   flashIntervalle: 0.1
   checkpoint: {fileID: 0}
@@ -221,10 +222,21 @@ MonoBehaviour:
   ecranDeMort: {fileID: 0}
   UIInfos: {fileID: 0}
   vieMax: 100
-  vieActuelle: 0
+  vieActuelle: 75
   bardevie: {fileID: 0}
+  pasBeaucoupDeVie: 0
+  tete: {fileID: 723380926508243363}
+  brasGauche: {fileID: 723380927542392433}
+  brasDroit: {fileID: 723380927552096455}
   invincibiliteDuree: 3
   estInvincible: 0
+  douleur:
+  - {fileID: 8300000, guid: 5c8eeaf08652d0145ad2cfbab1875285, type: 3}
+  - {fileID: 8300000, guid: 9ff7c1ef8f6d78e4cb58a5b8973eace3, type: 3}
+  - {fileID: 8300000, guid: d222d3813b11e6c4691d01aab5f9a8a1, type: 3}
+  - {fileID: 8300000, guid: 9bb7e1a7c583c464fb8846198af23bfd, type: 3}
+  - {fileID: 8300000, guid: 10215e83f7be9644a9d9dc1e48c013c4, type: 3}
+  - {fileID: 8300000, guid: 20cb78085c2921b49ad5610964f66bd8, type: 3}
 --- !u!114 &723380926130433940
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -252,6 +264,9 @@ MonoBehaviour:
   forceDeSaut: 26
   dureeMaxDeJetpack: 3
   jetpackCD: 10
+  pas: {fileID: 8300000, guid: 75c10fa84e543bb4fbe0e4050b81d7a2, type: 3}
+  saut: {fileID: 8300000, guid: 554eb6a40a6ab32478be408378360b8d, type: 3}
+  atterissage: {fileID: 0}
 --- !u!114 &723380926130433943
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -301,6 +316,9 @@ MonoBehaviour:
   ballePrefab: {fileID: 7174439026476713713, guid: 6eee5a3efb960c548af21ca8ac3da405, type: 3}
   CompteurMun: {fileID: 0}
   rechargementDuree: 3
+  tirer: {fileID: 0}
+  plusDeMunitions: {fileID: 0}
+  recharger: {fileID: 0}
 --- !u!114 &931458518573735419
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -316,6 +334,102 @@ MonoBehaviour:
   interaction: 0
   texte: {fileID: 3601478445878593842}
   flip: {fileID: 723380926130433940}
+--- !u!82 &9167510127295204156
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 723380926130433962}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &723380926455933908
 GameObject:
   m_ObjectHideFlags: 0
@@ -376,9 +490,7 @@ Transform:
   m_LocalPosition: {x: 0.066, y: 0.007, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 723380927553499911}
-  - {fileID: 723380926881194471}
+  m_Children: []
   m_Father: {fileID: 723380927113577100}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -500,116 +612,6 @@ MonoBehaviour:
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
   m_ApplyToSortingLayers: 9565263225dbb71000000000dfb13580
-  m_LightCookieSprite: {fileID: 0}
-  m_DeprecatedPointLightCookieSprite: {fileID: 0}
-  m_LightOrder: 0
-  m_OverlapOperation: 0
-  m_NormalMapDistance: 3
-  m_NormalMapQuality: 1
-  m_UseNormalMap: 0
-  m_ShadowIntensityEnabled: 1
-  m_ShadowIntensity: 1
-  m_ShadowVolumeIntensityEnabled: 0
-  m_ShadowVolumeIntensity: 0.75
-  m_Vertices:
-  - position: {x: 0.9985302, y: 0.9985302, z: 0}
-    color: {r: 0.70710677, g: 0.70710677, b: 0, a: 0}
-    uv: {x: 0, y: 0}
-  - position: {x: 0.9985302, y: 0.9985302, z: 0}
-    color: {r: 0, g: 0, b: 0, a: 1}
-    uv: {x: 0, y: 0}
-  - position: {x: -0.9985302, y: 0.9985302, z: 0}
-    color: {r: -0.70710677, g: 0.70710677, b: 0, a: 0}
-    uv: {x: 0, y: 0}
-  - position: {x: -0.9985302, y: 0.9985302, z: 0}
-    color: {r: 0, g: 0, b: 0, a: 1}
-    uv: {x: 0, y: 0}
-  - position: {x: -0.99853003, y: -0.9985304, z: 0}
-    color: {r: -0.70710665, g: -0.7071069, b: 0, a: 0}
-    uv: {x: 0, y: 0}
-  - position: {x: -0.99853003, y: -0.9985304, z: 0}
-    color: {r: 0, g: 0, b: 0, a: 1}
-    uv: {x: 0, y: 0}
-  - position: {x: 0.99853003, y: -0.9985304, z: 0}
-    color: {r: 0.70710665, g: -0.7071069, b: 0, a: 0}
-    uv: {x: 0, y: 0}
-  - position: {x: 0.99853003, y: -0.9985304, z: 0}
-    color: {r: 0, g: 0, b: 0, a: 1}
-    uv: {x: 0, y: 0}
-  - position: {x: 0, y: 0, z: 0}
-    color: {r: 0, g: 0, b: 0, a: 1}
-    uv: {x: 0, y: 0}
-  m_Triangles: 030001000800020000000100030002000100050003000800040002000300050004000300070005000800060004000500070006000500010007000800000006000700010000000700
-  m_LocalBounds:
-    m_Center: {x: 0, y: -0.00000011920929, z: 0}
-    m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
-  m_PointLightInnerAngle: 0
-  m_PointLightOuterAngle: 45
-  m_PointLightInnerRadius: 0
-  m_PointLightOuterRadius: 30
-  m_ShapeLightParametricSides: 5
-  m_ShapeLightParametricAngleOffset: 0
-  m_ShapeLightParametricRadius: 1
-  m_ShapeLightFalloffSize: 0.5
-  m_ShapeLightFalloffOffset: {x: 0, y: 0}
-  m_ShapePath:
-  - {x: -0.5, y: -0.5, z: 0}
-  - {x: 0.5, y: -0.5, z: 0}
-  - {x: 0.5, y: 0.5, z: 0}
-  - {x: -0.5, y: 0.5, z: 0}
---- !u!1 &723380926881194470
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 723380926881194471}
-  - component: {fileID: 723380926881194472}
-  m_Layer: 7
-  m_Name: Lumiere_LampeTorche
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &723380926881194471
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 723380926881194470}
-  m_LocalRotation: {x: -0, y: -0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 2.57, y: 0.38, z: 0}
-  m_LocalScale: {x: 2, y: 0.6666667, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 723380926508243364}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
---- !u!114 &723380926881194472
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 723380926881194470}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_ComponentVersion: 1
-  m_LightType: 3
-  m_BlendStyleIndex: 0
-  m_FalloffIntensity: 0.4
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 2
-  m_LightVolumeIntensity: 1
-  m_LightVolumeIntensityEnabled: 0
-  m_ApplyToSortingLayers: 00000000
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -981,37 +983,6 @@ MonoBehaviour:
   inventaire: {fileID: 7403852495647343099}
   spriteRenderer: {fileID: 723380927552096456}
   newSprite: {fileID: 21300000, guid: e500cad0eb4f2984a9bde10455918993, type: 3}
---- !u!1 &723380927553499910
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 723380927553499911}
-  m_Layer: 7
-  m_Name: PointDeSortieBalle
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &723380927553499911
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 723380927553499910}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.984, y: 0.094, z: 0}
-  m_LocalScale: {x: 0.6666667, y: 2, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 723380926508243364}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1751113549455495136
 GameObject:
   m_ObjectHideFlags: 0
@@ -1674,7 +1645,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6324891876843225330}
-  m_LocalRotation: {x: -0, y: -0, z: -0.36943987, w: 0.92925465}
+  m_LocalRotation: {x: -0, y: -0, z: -0.46285793, w: 0.88643247}
   m_LocalPosition: {x: 0.382, y: -0.099, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1746,10 +1717,10 @@ MonoBehaviour:
   m_LocalBounds:
     m_Center: {x: 0, y: -0.00000011920929, z: 0}
     m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
-  m_PointLightInnerAngle: 36.21
-  m_PointLightOuterAngle: 69.21
+  m_PointLightInnerAngle: 38.5
+  m_PointLightOuterAngle: 71.5
   m_PointLightInnerRadius: 0
-  m_PointLightOuterRadius: 6.975201
+  m_PointLightOuterRadius: 7.4139495
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
@@ -1854,6 +1825,9 @@ MonoBehaviour:
   chargeur: {fileID: 0}
   pateAClone: {fileID: 0}
   inventaire: {fileID: 0}
+  audio1: 0
+  audio2: 0
+  audio3: 0
   lumiere: {fileID: 0}
   personnage: {fileID: 0}
   direction: {fileID: 0}

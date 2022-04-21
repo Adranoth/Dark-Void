@@ -19,6 +19,8 @@ public class PersonnageMouvements : MonoBehaviour
 
     public float vitesseMax = 20;
     public float vitesse = 18;
+    public float move;
+    public float moveY;
 
     public float dureeMaxDeSaut = 0.3f;
     public float forceDeSaut = 30;
@@ -27,12 +29,25 @@ public class PersonnageMouvements : MonoBehaviour
     bool auSol = true;
 
     bool jetpackActive = false;
-    public float dureeMaxDeJetpack = 3f;
-    public float jetpackCD = 10f;
+    public float dureeMaxDeJetpack = 5f;
+    public float jetpackCD = 5f;
     float tempsDeJetpack;
     float tempsDeJetpackCD;
+    public float essence;
+    public float essenceMax;
     bool jetpackEnCD = false;
 
+    AudioSource audiosource;
+    public AudioClip pas;
+    public AudioClip saut;
+    public AudioClip atterissage;
+
+
+    private void Start()
+    {
+        audiosource = GetComponent<AudioSource>();
+        essence = essenceMax;
+    }
 
     void FixedUpdate()
     {
@@ -43,13 +58,26 @@ public class PersonnageMouvements : MonoBehaviour
     {
         Saut();
         Jetpack();
-        
+        if (jetpackActive)
+        {
+            essence -= Time.deltaTime;
+            if (essence < 0)
+            {
+                essence = 0;
+                jetpackActive = false;
+                jetpackEnCD = true;
+            }
+            else if (essence < essenceMax)
+            {
+                essence += Time.deltaTime;
+            }
+        }
     }
 
     private void Direction()
     {
-        float move = Input.GetAxis("Horizontal");
-        float moveY = Input.GetAxis("Vertical");
+        move = Input.GetAxis("Horizontal");
+        moveY = Input.GetAxis("Vertical");
 
         personnage.SetFloat("Speed2", Mathf.Abs(move));
 
@@ -95,30 +123,35 @@ public class PersonnageMouvements : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && !auSol && !enSaut && inventaire.jetpackAcquis && !jetpackEnCD)
         {
             enSaut = false;
-            tempsDeJetpack = 0;
+            //tempsDeJetpack = 0;
             jetpackActive = true;
             personnageRb.drag = linearDragJetpack;
             personnageRb.gravityScale = graviteJetpack;
             jetpack.SetBool("EstAllume", true);
         }
-        if (jetpackActive)
-        {
+        // if (jetpackActive)
+         {
             tempsDeJetpack += Time.deltaTime;
-        }
-        if ((Input.GetKeyUp(KeyCode.Space) | tempsDeJetpack > dureeMaxDeJetpack) && !jetpackEnCD && jetpackActive)
+         }
+        //tempsDeJetpack > dureeMaxDeJetpack)
+        if ((Input.GetKeyUp(KeyCode.Space) && !jetpackEnCD && jetpackActive))
         {
             jetpackActive = false;
-            jetpackEnCD = true;
-            tempsDeJetpackCD = 0;
+            //jetpackEnCD = true;
+            //tempsDeJetpackCD = 0;
             personnageRb.drag = linearDragAuSol;
             personnageRb.gravityScale = graviteAuSol;
             jetpack.SetBool("EstAllume", false);
         }
-        if (jetpackEnCD)
+       // if (jetpackEnCD)
         {
             tempsDeJetpackCD += Time.deltaTime;
         }
-        if (tempsDeJetpackCD > jetpackCD)
+       // if (tempsDeJetpack > jetpackCD)
+        {
+            jetpackEnCD = false;
+        }
+        if (essence == essenceMax)
         {
             jetpackEnCD = false;
         }
@@ -128,7 +161,9 @@ public class PersonnageMouvements : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) && auSol)
         {
+            audiosource.PlayOneShot(saut, 1.5f);
             personnage.SetBool("IsJumping", true);
+            audiosource.PlayOneShot(saut, 1f);
             enSaut = true;
             tempsDeSaut = 0;
             auSol = false;
@@ -146,10 +181,16 @@ public class PersonnageMouvements : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Sol"))
+        if (collision.gameObject.CompareTag("Sol") && auSol == false)
         {
+            audiosource.PlayOneShot(atterissage, 2f);
             auSol = true;
             personnage.SetBool("IsJumping", false);
         }
+    }
+
+    private void BruitDePas()
+    {
+        audiosource.PlayOneShot(pas, 1f);
     }
 }
