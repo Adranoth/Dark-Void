@@ -15,14 +15,9 @@ public class RunnerMouvements : MonoBehaviour
     public Transform cible;
     private Vector3 ciblePosition;
 
-    private Rigidbody2D runnerRB;
+    public Rigidbody2D runnerRB;
     public Animator animator;
     
-
-    void Start()
-    {
-        runnerRB = GetComponent<Rigidbody2D>();
-    }
     void FixedUpdate()
     {
         ciblePosition = new Vector3(cible.position.x, runnerRB.position.y, 0);
@@ -57,7 +52,7 @@ public class RunnerMouvements : MonoBehaviour
     private void Saut()
     {
         animator.SetBool("EnSaut", true);
-        runnerRB.AddForce(new Vector2(0, HauteurDeSaut));
+        runnerRB.AddForce(new Vector3(0, HauteurDeSaut, 0), ForceMode2D.Impulse);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -87,10 +82,6 @@ public class RunnerMouvements : MonoBehaviour
             if (FindObjectOfType<Inventaire>().audio1 == true)
             {
                 vitesse = vitesseObscurite;
-            }
-            else
-            {
-                vitesse = vitesse;
             }
         }
     }

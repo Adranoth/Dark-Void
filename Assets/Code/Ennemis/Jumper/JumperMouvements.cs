@@ -6,6 +6,8 @@ public class JumperMouvements : MonoBehaviour
 {
 
     public float vitesse;
+    public float vitesseObscurite;
+    public float vitesseLumiere;
 
     private bool faceAGauche = true;
 
@@ -76,6 +78,25 @@ public class JumperMouvements : MonoBehaviour
         {
             auSol = true;
             animator.SetBool("EnSaut", false);
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Lumiere") && FindObjectOfType<Inventaire>().audio1 == true)
+        {
+            vitesse = vitesseLumiere;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Lumiere"))
+        {
+            if (FindObjectOfType<Inventaire>().audio1 == true)
+            {
+                vitesse = vitesseObscurite;
+            }
         }
     }
 }

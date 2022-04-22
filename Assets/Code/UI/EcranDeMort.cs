@@ -9,6 +9,7 @@ public class EcranDeMort : MonoBehaviour
     public GameObject joueur;
     public PersonnageVie personnageVie;
     public PersonnageMouvements personnageMouvements;
+    public ResetEnnemis resetEnnemis;
 
     public GameObject choixRespawn;
     public GameObject choixClone;
@@ -18,6 +19,7 @@ public class EcranDeMort : MonoBehaviour
     public Button boutonD;
 
     public int pateAClone;
+    public GameObject pateACloneJoueurPrefab;
 
     public bool respawnCheckpoint;
     public Animator animator;
@@ -49,35 +51,44 @@ public class EcranDeMort : MonoBehaviour
         float vieCoef;
         float vitesseCoef;
 
-        switch(classe)
+        GameObject massePateACLone = Instantiate(pateACloneJoueurPrefab, joueur.transform.position, joueur.transform.rotation);
+
+        switch (classe)
         {
             case 0:
                 vieCoef = 1;
                 vitesseCoef = 1;
                 if(respawnCheckpoint)
                 {
-                    inventaire.pateACloneActuelle -= 1500;
+                    massePateACLone.GetComponent<PateACloneJoueur>().valeur = inventaire.pateACloneActuelle - 1500;
+                    inventaire.pateACloneActuelle = 0;
                     animator.SetBool("Classe B", true);
                     animator.SetBool("Classe C", false);
                     animator.SetBool("Classe D", false);
                     break;
                 }
-                inventaire.pateACloneActuelle -= 1000;
+                massePateACLone.GetComponent<PateACloneJoueur>().valeur = inventaire.pateACloneActuelle - 1000;
+                inventaire.pateACloneActuelle = 0;
                 break;
             case 1:
                 vieCoef = 0.75f;
                 vitesseCoef = 0.90f;
                 if (respawnCheckpoint)
                 {
+                    massePateACLone.GetComponent<PateACloneJoueur>().valeur = inventaire.pateACloneActuelle - 500;
+                    inventaire.pateACloneActuelle = 0;
                     animator.SetBool("Classe B", false);
                     animator.SetBool("Classe C", true);
                     animator.SetBool("Classe D", false);
-                    inventaire.pateACloneActuelle -= 500;
                 }
+                massePateACLone.GetComponent<PateACloneJoueur>().valeur = inventaire.pateACloneActuelle;
+                inventaire.pateACloneActuelle = 0;
                 break;
             case 2:
                 vieCoef = 0.25f;
                 vitesseCoef = 0.75f;
+                massePateACLone.GetComponent<PateACloneJoueur>().valeur = inventaire.pateACloneActuelle;
+                inventaire.pateACloneActuelle = 0;
                 animator.SetBool("Classe B", false);
                 animator.SetBool("Classe C", false);
                 animator.SetBool("Classe D", true);
@@ -85,6 +96,8 @@ public class EcranDeMort : MonoBehaviour
             default:
                 vieCoef = 0.75f;
                 vitesseCoef = 0.90f;
+                massePateACLone.GetComponent<PateACloneJoueur>().valeur = inventaire.pateACloneActuelle;
+                inventaire.pateACloneActuelle = 0;
                 break;
         }
 
@@ -103,6 +116,7 @@ public class EcranDeMort : MonoBehaviour
         personnageMouvements.vitesse = personnageMouvements.vitesseMax * vitesseCoef;
         personnageVie.estInvincible = false;
         personnageVie.graphiques.color = new Color(1f, 1f, 1f, 1f);
+        resetEnnemis.ResetPosEnnemis();
     }
 
     public void RespawnCheckpoint()

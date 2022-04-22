@@ -8,7 +8,7 @@ public class FlyerVie : MonoBehaviour
     public int vieActuelle;
     public GameObject pateAClonePrefab;
 
-    void Awake()
+    void OnEnable()
     {
         vieActuelle = vieMax;
     }
@@ -20,7 +20,7 @@ public class FlyerVie : MonoBehaviour
         if (vieActuelle <= 0)
         {
             Instantiate(pateAClonePrefab, transform.position, transform.rotation);
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
 }

@@ -8,7 +8,7 @@ public class JumperVie : MonoBehaviour
     public int vieActuelle;
     public GameObject pateAClonePrefab;
 
-    void Awake()
+    void OnEnable()
     {
         vieActuelle = vieMax;
     }
@@ -21,7 +21,7 @@ public class JumperVie : MonoBehaviour
         if (vieActuelle <= 0)
         {
             Instantiate(pateAClonePrefab, transform.position, transform.rotation);
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
 }
