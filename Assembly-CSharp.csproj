@@ -68,6 +68,7 @@
     <Compile Include="Assets\Code\Divers\Dialogues\DialogueManager.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\EnvMapAnimator.cs" />
     <Compile Include="Assets\Code\ItemsCollecte\JetpackRecup.cs" />
+    <Compile Include="Assets\Code\ItemsCollecte\PateACloneJoueur.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\CameraController.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMPro_InstructionOverlay.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_ExampleScript_01.cs" />
@@ -136,7 +137,6 @@
     <Compile Include="Assets\Code\Ennemis\Flyer\FlyerFlip.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
     <Compile Include="Assets\Code\ItemsCollecte\pateAClone.cs" />
-    <Compile Include="Assets\Code\ItemsCollecte\PateACloneJoueur.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
