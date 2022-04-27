@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{2E304302-911D-4F49-DCAF-888DAC21CC3E}</ProjectGuid>
+    <ProjectGuid>{4EDACC66-BC88-4898-FF1F-C9B6E7DFE7F1}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -122,6 +122,7 @@
     <Compile Include="Assets\Code\Ennemis\Jumper\JumperAggro.cs" />
     <Compile Include="Assets\Code\Divers\Dialogues\Dialogues.cs" />
     <Compile Include="Assets\Code\Divers\PorteOuverture.cs" />
+    <Compile Include="Assets\Code\UI\MenuPause.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ObjectSpin.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventCheck.cs" />
     <Compile Include="Assets\Code\Personnage\PersonnageBrasRotation.cs" />
@@ -144,7 +145,6 @@
     <Compile Include="Assets\Code\Ennemis\Flyer\FlyerFlip.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
     <Compile Include="Assets\Code\ItemsCollecte\pateAClone.cs" />
-    <Compile Include="Assets\Code\UI\MenuPause.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
@@ -973,15 +973,15 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="PackageToolsEditor.csproj">
-      <Project>{A9E92A31-D86D-94C8-CE8D-43F8D281571F}</Project>
+      <Project>{D13FD23C-3DD2-1322-1B05-46D938FF6E3B}</Project>
       <Name>PackageToolsEditor</Name>
     </ProjectReference>
     <ProjectReference Include="AstarPathfindingProjectEditor.csproj">
-      <Project>{738A772E-15D7-5633-6EA2-138DE856A490}</Project>
+      <Project>{2D0EA5FE-CCC4-4530-2BD9-BB8ADE0EF43E}</Project>
       <Name>AstarPathfindingProjectEditor</Name>
     </ProjectReference>
     <ProjectReference Include="AstarPathfindingProject.csproj">
-      <Project>{ECB6611B-36FA-AC81-EB78-0ADDE83C446E}</Project>
+      <Project>{412C85A7-74C3-A340-1316-F4AF3FE85AF2}</Project>
       <Name>AstarPathfindingProject</Name>
     </ProjectReference>
   </ItemGroup>
