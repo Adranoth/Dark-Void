@@ -14,6 +14,7 @@ public class BossMouvement : MonoBehaviour
     bool versLaDroite = true;
     bool kbDroite;
     float distanceX;
+    float distanceY;
 
     private void Start()
     {
@@ -32,6 +33,7 @@ public class BossMouvement : MonoBehaviour
             bossRB.position = Vector2.MoveTowards(transform.position, cible2, vitesse * Time.deltaTime);
         }
         distanceX = (GameObject.FindGameObjectWithTag("Joueur").transform.position.x - transform.position.x);
+        distanceY = (GameObject.FindGameObjectWithTag("Joueur").transform.position.y - transform.position.y);
         if (distanceX > 0)
         {
             kbDroite = false;
@@ -39,6 +41,14 @@ public class BossMouvement : MonoBehaviour
         else
         {
             kbDroite = true;
+        }
+        if ((Mathf.Abs(distanceX) < 20) && (Mathf.Abs(distanceY) < 5))
+        {
+            FindObjectOfType<BossClone>().enabled = true;
+        }
+        else if ((Mathf.Abs(distanceX) > 50))
+        {
+            FindObjectOfType<BossClone>().enabled = false;
         }
     }
 

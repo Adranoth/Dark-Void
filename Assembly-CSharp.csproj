@@ -56,13 +56,14 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Code\Ennemis\Boss\BossVie.cs" />
     <Compile Include="Assets\Code\Personnage\PersonnageTirer.cs" />
     <Compile Include="Assets\Code\Ennemis\ResetEnnemis.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_A.cs" />
     <Compile Include="Assets\Code\Divers\EffetParallax.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeA.cs" />
     <Compile Include="Assets\Code\Ennemis\Boss\BossMouvement.cs" />
-    <Compile Include="Assets\Code\Divers\PasDeLumierePLZ.cs" />
+    <Compile Include="Assets\Code\Divers\NoWallClipPLZ.cs" />
     <Compile Include="Assets\Code\UI\BarDeVie.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshProFloatingText.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeB.cs" />
@@ -139,12 +140,11 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_FrameRateCounter.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_B.cs" />
     <Compile Include="Assets\Code\Sons\AudioManager.cs" />
+    <Compile Include="Assets\Code\Ennemis\Boss\BossClone.cs" />
     <Compile Include="Assets\Code\Personnage\BrasLampe.cs" />
     <Compile Include="Assets\Code\Ennemis\Flyer\FlyerFlip.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
     <Compile Include="Assets\Code\ItemsCollecte\pateAClone.cs" />
-    <Compile Include="Assets\Code\Ennemis\Boss\BossVie.cs" />
-    <Compile Include="Assets\Code\Ennemis\Boss\BossClone.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

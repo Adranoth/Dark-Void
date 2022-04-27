@@ -27,6 +27,13 @@ public class RunnerMouvements : MonoBehaviour
     public Animator animator;
     bool lumiere;
 
+    public List<AudioClip> audioClips;
+    public AudioClip currentClip;
+    public AudioSource source;
+    public float minWaitBetweenPlays = 1f;
+    public float maxWaitBetweenPlays = 5f;
+    public float waitTimeCountdown = -1f;
+
     private void Start()
     {
         vitesseDeBase = Random.Range(9f, 11f);
@@ -48,18 +55,12 @@ public class RunnerMouvements : MonoBehaviour
             runnerRB.position = Vector2.MoveTowards(transform.position, ciblePosition, vitesse * Time.deltaTime);
             runnerRB.gravityScale = 0f;
         }
-        else if ((distanceY > 5) && (auSol == true) && (distanceX < 2))
+        else if ((distanceY > 5) && (distanceX < 2))
         {
             ciblePosition = new Vector3(cible.position.x, runnerRB.position.y, 0);
             runnerRB.position = Vector2.MoveTowards(transform.position, ciblePosition, vitesse * Time.deltaTime);
             runnerRB.gravityScale = 15f;
             Saut();
-        }
-        else if (distanceX > 15)
-        {
-            ciblePosition = new Vector3(cible.position.x, cible.position.y, 0);
-            runnerRB.position = Vector2.MoveTowards(transform.position, ciblePosition, vitesse * Time.deltaTime);
-            runnerRB.gravityScale = 0.5f;
         }
         else
         {
@@ -92,6 +93,20 @@ public class RunnerMouvements : MonoBehaviour
                 vitesse = vitesseObscurite;
             }
         }
+        if (!source.isPlaying)
+        {
+            if (waitTimeCountdown < 0f)
+            {
+                currentClip = audioClips[Random.Range(0, audioClips.Count)];
+                source.clip = currentClip;
+                source.Play();
+                waitTimeCountdown = Random.Range(minWaitBetweenPlays, maxWaitBetweenPlays);
+            }
+            else
+            {
+                waitTimeCountdown -= Time.deltaTime;
+            }
+        }
     }
 
     private void Flip()
@@ -103,10 +118,12 @@ public class RunnerMouvements : MonoBehaviour
 
     private void Saut()
     {
-        animator.SetBool("EnSaut", true);
-        runnerRB.AddForce(new Vector3(longueurDeSaut, HauteurDeSaut, 0), ForceMode2D.Impulse);
-        auSol = false;
-
+        if (auSol == true)
+        {
+            animator.SetBool("EnSaut", true);
+            runnerRB.AddForce(new Vector3(longueurDeSaut, HauteurDeSaut, 0), ForceMode2D.Impulse);
+            auSol = false;
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -114,7 +131,6 @@ public class RunnerMouvements : MonoBehaviour
         if (collision.gameObject.tag == "Mur")
         {
             Saut();
-            auSol = true;
             animator.SetBool("EnSaut", false);
         }
         else if (collision.gameObject.tag == "Sol")

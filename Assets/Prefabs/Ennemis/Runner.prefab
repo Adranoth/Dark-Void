@@ -127,9 +127,17 @@ MonoBehaviour:
   distanceX: 0
   auSol: 0
   velocite: {x: 0, y: 0}
-  seuil: 3
+  seuil: 9
   runnerRB: {fileID: 2996598497005967440}
   animator: {fileID: 4078715583468709589}
+  audioClips:
+  - {fileID: 8300000, guid: 905fd19836d7bf742878d0e78e367367, type: 3}
+  - {fileID: 8300000, guid: cc8896137f14f2a43bdb2e24e1c4deee, type: 3}
+  currentClip: {fileID: 0}
+  source: {fileID: 1502232541845661433}
+  minWaitBetweenPlays: 1
+  maxWaitBetweenPlays: 5
+  waitTimeCountdown: -1
 --- !u!70 &632336348755283317
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -266,6 +274,13 @@ MonoBehaviour:
   distanceY: 0
   source: {fileID: 1502232541845661433}
   spotted: {fileID: 8300000, guid: 1bb83778213d07d4cb03692fb22390cf, type: 3}
+  audioClips:
+  - {fileID: 8300000, guid: 7f30af505d264d24693c9429efbe7692, type: 3}
+  - {fileID: 8300000, guid: 7aa90d298c1035641a820baa92c01b83, type: 3}
+  currentClip: {fileID: 0}
+  minWaitBetweenPlays: 1
+  maxWaitBetweenPlays: 10
+  waitTimeCountdown: -1
   vie: {fileID: 0}
   runner: {fileID: 2996598497005967446}
 --- !u!1 &4837543220602065036
@@ -490,7 +505,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -499,9 +514,9 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 10
+  MaxDistance: 20
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 1
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0

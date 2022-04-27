@@ -7,6 +7,8 @@ public class CloningPod : MonoBehaviour
 {
     bool interaction;
     public ResetEnnemis resetEnnemis;
+    public ResetEnnemis resetEnnemis2;
+    public ResetEnnemis resetEnnemis3;
     public Inventaire inventaire;
     public PersonnageVie personnageVie;
     public PersonnageTirer personnageTirer;
@@ -50,6 +52,8 @@ public class CloningPod : MonoBehaviour
                 menu = true;
                 changerClasse.SetActive(true);
                 resetEnnemis.ResetPosEnnemis();
+                resetEnnemis2.ResetPosEnnemis();
+                resetEnnemis3.ResetPosEnnemis();
                 personnageVie.vieActuelle = personnageVie.vieMax;
                 personnageVie.bardevie.MetVieMax(personnageVie.vieMax);
                 personnageVie.bardevie.MetVie(personnageVie.vieActuelle);

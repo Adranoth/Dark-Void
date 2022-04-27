@@ -5,7 +5,7 @@ using UnityEngine.Experimental.Rendering.Universal;
 
 
 
-public class PasDeLumierePLZ : MonoBehaviour
+public class NoWallClipPLZ : MonoBehaviour
 {
     public PersonnageLampe lampe;
     public GameObject personnage;

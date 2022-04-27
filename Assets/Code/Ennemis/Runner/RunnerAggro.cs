@@ -12,6 +12,11 @@ public class RunnerAggro : MonoBehaviour
 
     public AudioSource source;
     public AudioClip spotted;
+    public List<AudioClip> audioClips;
+    public AudioClip currentClip;
+    public float minWaitBetweenPlays = 1f;
+    public float maxWaitBetweenPlays = 10f;
+    public float waitTimeCountdown = -1f;
 
     public PersonnageVie vie;
     public RunnerVie runner;
@@ -66,6 +71,20 @@ public class RunnerAggro : MonoBehaviour
             gameObject.tag = "Passif";
             gameObject.GetComponent<CapsuleCollider2D>().enabled = true;
             aggro.GetComponent<RunnerMouvements>().enabled = false;
+        }
+        if (!source.isPlaying)
+        {
+            if (waitTimeCountdown < 0f)
+            {
+                currentClip = audioClips[Random.Range(0, audioClips.Count)];
+                source.clip = currentClip;
+                source.Play();
+                waitTimeCountdown = Random.Range(minWaitBetweenPlays, maxWaitBetweenPlays);
+            }
+            else
+            {
+                waitTimeCountdown -= Time.deltaTime;
+            }
         }
     }
     public IEnumerator Spot()

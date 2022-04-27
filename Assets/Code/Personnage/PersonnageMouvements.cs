@@ -68,10 +68,10 @@ public class PersonnageMouvements : MonoBehaviour
         if (jetpackActive == false)
         {
             essence += Time.deltaTime;
-            if (essence > 3.33)
+            if (essence > 1.20)
             {
                 lumiere3.SetActive(true);
-                if (essence > 6.66)
+                if (essence > 2.60)
                 {
                     lumiere2.SetActive(true);
                     if (essence > essenceMax)
@@ -85,10 +85,10 @@ public class PersonnageMouvements : MonoBehaviour
         else
         {
             essence -= Time.deltaTime;
-            if (essence < 6.66)
+            if (essence < 3.60)
             {
                 lumiere1.SetActive(false);
-                if (essence < 3.33)
+                if (essence < 1.20)
                 {
                     lumiere2.SetActive(false);
                     if (essence < 0)

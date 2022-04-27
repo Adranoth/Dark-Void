@@ -14,6 +14,8 @@ public class EcranDeMort : MonoBehaviour
     public PersonnageMouvements personnageMouvements;
     public PersonnageTirer personnageTirer;
     public ResetEnnemis resetEnnemis;
+    public ResetEnnemis resetEnnemis2;
+    public ResetEnnemis resetEnnemis3;
 
     public GameObject choixRespawn;
     public GameObject choixClone;
@@ -189,6 +191,8 @@ public class EcranDeMort : MonoBehaviour
         brasDroit.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
         brasGauche.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
         resetEnnemis.ResetPosEnnemis();
+        resetEnnemis2.ResetPosEnnemis();
+        resetEnnemis3.ResetPosEnnemis();
         FindObjectOfType<AudioManager>().Play("respawn");
         foreach (GameObject anim in animators)
         {

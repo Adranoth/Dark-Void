@@ -48,8 +48,8 @@ public class PersonnageVie : MonoBehaviour
         bardevie.MetVieMax(vieMax);
         bardevie.MetVie(vieActuelle);
         audiosource = GetComponent<AudioSource>();
-        animator.keepAnimatorControllerStateOnDisable = true;
-        bras.keepAnimatorControllerStateOnDisable = true;
+        animator.keepAnimatorControllerStateOnDisable = false;
+        bras.keepAnimatorControllerStateOnDisable = false;
     }
 
     private void OnEnable()

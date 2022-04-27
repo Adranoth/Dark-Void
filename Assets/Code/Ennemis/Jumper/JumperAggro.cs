@@ -49,7 +49,7 @@ public class JumperAggro : MonoBehaviour
             gameObject.tag = "Passif";
             gameObject.GetComponent<CapsuleCollider2D>().enabled = true;
         }
-        else if (((Mathf.Abs(distanceX) > 20) && (enCombat == true)) || ((Mathf.Abs(distanceY) > 20) && (enCombat == true)))
+        else if (((Mathf.Abs(distanceX)) < 20) && ((Mathf.Abs(distanceY)) < 20) && (enCombat == false))
         {
             StartCoroutine(Spot());
         }
