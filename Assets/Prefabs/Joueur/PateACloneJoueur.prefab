@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   valeur: 0
-  joueur: {fileID: 0}
+  joueur: {fileID: 3678409223571802014, guid: 7cd4790b012aec04a96fc48811cc16bf, type: 3}
 --- !u!50 &6516424846846290929
 Rigidbody2D:
   serializedVersion: 4

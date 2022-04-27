@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{2D0EA5FE-CCC4-4530-2BD9-BB8ADE0EF43E}</ProjectGuid>
+    <ProjectGuid>{738A772E-15D7-5633-6EA2-138DE856A490}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>AstarPathfindingProjectEditor</AssemblyName>
@@ -760,11 +760,11 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="AstarPathfindingProject.csproj">
-      <Project>{412C85A7-74C3-A340-1316-F4AF3FE85AF2}</Project>
+      <Project>{ECB6611B-36FA-AC81-EB78-0ADDE83C446E}</Project>
       <Name>AstarPathfindingProject</Name>
     </ProjectReference>
     <ProjectReference Include="PackageToolsEditor.csproj">
-      <Project>{D13FD23C-3DD2-1322-1B05-46D938FF6E3B}</Project>
+      <Project>{A9E92A31-D86D-94C8-CE8D-43F8D281571F}</Project>
       <Name>PackageToolsEditor</Name>
     </ProjectReference>
   </ItemGroup>

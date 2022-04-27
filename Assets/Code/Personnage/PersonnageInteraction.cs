@@ -12,21 +12,24 @@ public class PersonnageInteraction : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (interaction == true)
+        if (!MenuPause.jeuEnPause)
         {
-            texte.GetComponent<SpriteRenderer>().enabled = true;
-        }
-        else
-        {
-            texte.GetComponent<SpriteRenderer>().enabled = false;
-        }
-        if (flip.faceADroite == true)
-        {
-            texte.GetComponent<SpriteRenderer>().flipX = false;
-        }
-        else
-        {
-            texte.GetComponent<SpriteRenderer>().flipX = true;
+            if (interaction == true)
+            {
+                texte.GetComponent<SpriteRenderer>().enabled = true;
+            }
+            else
+            {
+                texte.GetComponent<SpriteRenderer>().enabled = false;
+            }
+            if (flip.faceADroite == true)
+            {
+                texte.GetComponent<SpriteRenderer>().flipX = false;
+            }
+            else
+            {
+                texte.GetComponent<SpriteRenderer>().flipX = true;
+            }
         }
     }
 
@@ -36,11 +39,27 @@ public class PersonnageInteraction : MonoBehaviour
         {
             interaction = true;
         }
+        else if (collision.CompareTag("Vaisseau"))
+        {
+            interaction = true;
+        }
+        else if (collision.CompareTag("Checkpoint"))
+        {
+            interaction = true;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.CompareTag("Interaction"))
+        {
+            interaction = false;
+        }
+        else if (collision.CompareTag("Vaisseau"))
+        {
+            interaction = false;
+        }
+        else if (collision.CompareTag("Checkpoint"))
         {
             interaction = false;
         }

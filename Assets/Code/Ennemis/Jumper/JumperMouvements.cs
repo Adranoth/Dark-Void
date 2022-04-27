@@ -9,7 +9,7 @@ public class JumperMouvements : MonoBehaviour
     public float vitesseObscurite;
     public float vitesseLumiere;
 
-    private bool faceAGauche = true;
+    public bool faceAGauche = true;
 
     public Transform cible;
     private Vector3 ciblePosition;
@@ -28,6 +28,7 @@ public class JumperMouvements : MonoBehaviour
     void Start()
     {
         jumperRB = GetComponent<Rigidbody2D>();
+        cible = GameObject.FindGameObjectWithTag("Joueur").transform;
     }
     void FixedUpdate()
     {

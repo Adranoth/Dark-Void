@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{4EDACC66-BC88-4898-FF1F-C9B6E7DFE7F1}</ProjectGuid>
+    <ProjectGuid>{2E304302-911D-4F49-DCAF-888DAC21CC3E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -56,15 +56,17 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Code\Ennemis\Boss\BossVie.cs" />
     <Compile Include="Assets\Code\Personnage\PersonnageTirer.cs" />
     <Compile Include="Assets\Code\Ennemis\ResetEnnemis.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_A.cs" />
     <Compile Include="Assets\Code\Divers\EffetParallax.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeA.cs" />
+    <Compile Include="Assets\Code\Ennemis\Boss\BossMouvement.cs" />
+    <Compile Include="Assets\Code\Divers\PasDeLumierePLZ.cs" />
     <Compile Include="Assets\Code\UI\BarDeVie.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshProFloatingText.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeB.cs" />
-    <Compile Include="Assets\Code\Personnage\PersonnagTeteRotation.cs" />
     <Compile Include="Assets\Code\Divers\Dialogues\DialogueManager.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\EnvMapAnimator.cs" />
     <Compile Include="Assets\Code\ItemsCollecte\JetpackRecup.cs" />
@@ -90,9 +92,11 @@
     <Compile Include="Assets\Code\Ennemis\Runner\RunnerAggro.cs" />
     <Compile Include="Assets\Code\Ennemis\Flyer\FlyerVie.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexJitter.cs" />
+    <Compile Include="Assets\Code\Personnage\OuvrirInventaire.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventHandler.cs" />
     <Compile Include="Assets\Code\Divers\Dialogues\NPC.cs" />
     <Compile Include="Assets\Unity Store\Cave Background\Scripts\PixelPerfectCamera.cs" />
+    <Compile Include="Assets\Interrupteur.cs" />
     <Compile Include="Assets\Code\Personnage\PersonnageVie.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\DropdownSample.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_PhoneNumberValidator.cs" />
@@ -102,6 +106,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TeleType.cs" />
     <Compile Include="Assets\Unity Store\Cave Background\Scripts\CameraMovements.cs" />
     <Compile Include="Assets\Code\Ennemis\Runner\RunnerAttaque.cs" />
+    <Compile Include="Assets\Code\Divers\CloningPod.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\Code\Divers\pateACloneCollision.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SkewTextExample.cs" />
@@ -125,6 +130,7 @@
     <Compile Include="Assets\Code\Armes\Flare.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\WarpTextExample.cs" />
     <Compile Include="Assets\Code\Ennemis\Runner\RunnerMouvements.cs" />
+    <Compile Include="Assets\Code\Divers\Fade_Noir.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />
     <Compile Include="Assets\Code\Ennemis\Flyer\FlyerAnimation.cs" />
     <Compile Include="Assets\Code\Ennemis\Flyer\FlyerAttaque.cs" />
@@ -133,10 +139,12 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_FrameRateCounter.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_B.cs" />
     <Compile Include="Assets\Code\Sons\AudioManager.cs" />
+    <Compile Include="Assets\Code\Ennemis\Boss\BossClone.cs" />
     <Compile Include="Assets\Code\Personnage\BrasLampe.cs" />
     <Compile Include="Assets\Code\Ennemis\Flyer\FlyerFlip.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
     <Compile Include="Assets\Code\ItemsCollecte\pateAClone.cs" />
+    <Compile Include="Assets\Code\UI\MenuPause.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
@@ -965,15 +973,15 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="PackageToolsEditor.csproj">
-      <Project>{D13FD23C-3DD2-1322-1B05-46D938FF6E3B}</Project>
+      <Project>{A9E92A31-D86D-94C8-CE8D-43F8D281571F}</Project>
       <Name>PackageToolsEditor</Name>
     </ProjectReference>
     <ProjectReference Include="AstarPathfindingProjectEditor.csproj">
-      <Project>{2D0EA5FE-CCC4-4530-2BD9-BB8ADE0EF43E}</Project>
+      <Project>{738A772E-15D7-5633-6EA2-138DE856A490}</Project>
       <Name>AstarPathfindingProjectEditor</Name>
     </ProjectReference>
     <ProjectReference Include="AstarPathfindingProject.csproj">
-      <Project>{412C85A7-74C3-A340-1316-F4AF3FE85AF2}</Project>
+      <Project>{ECB6611B-36FA-AC81-EB78-0ADDE83C446E}</Project>
       <Name>AstarPathfindingProject</Name>
     </ProjectReference>
   </ItemGroup>

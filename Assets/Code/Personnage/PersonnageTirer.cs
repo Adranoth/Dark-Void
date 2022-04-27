@@ -32,6 +32,14 @@ public class PersonnageTirer : MonoBehaviour
     public AudioClip plusDeMunitions;
     public AudioClip recharger;
 
+    public ParticleSystem flash;
+    public GameObject lumiere;
+    public Animator animator;
+    public Animator lampe;
+    public bool classeB;
+    public bool classeC = true;
+    public bool classeD;
+
     private void Start()
     {
         CompteurMun.text = inventaire.munitionsActuelle.ToString();
@@ -42,26 +50,41 @@ public class PersonnageTirer : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetButton("Fire1"))
+        if (!MenuPause.jeuEnPause)
         {
-            tempsDepuisTir = 0;
-            Tirer();
-        }
-        else
-        {
-            acceleration -= tempsDepuisTir / tempsPleineVitesse;
-            tempsDepuisTir += Time.deltaTime;
-            if(acceleration < 0)
+
+            if (classeB == true || classeC == true)
             {
-                acceleration = 0;
+                lampe.SetBool("classeD", false);
+                if (Input.GetButton("Fire1"))
+                {
+                    tempsDepuisTir = 0;
+                    Tirer();
+                }
+                else
+                {
+                    acceleration -= tempsDepuisTir / tempsPleineVitesse;
+                    tempsDepuisTir += Time.deltaTime;
+                    if (acceleration < 0)
+                    {
+                        acceleration = 0;
+                    }
+                }
+            }
+            else if (classeD == true)
+            {
+                lampe.SetBool("classeD", true);
+                if (Input.GetButtonDown("Fire1"))
+                {
+                    Tirer();
+                }
             }
 
-        }
-
-        if(Input.GetKeyDown(KeyCode.R) && !recharge && inventaire.chargeursActuels > 0)
-        {
-            Recharger();
-            acceleration = 0;
+            if (Input.GetKeyDown(KeyCode.R) && !recharge && inventaire.chargeursActuels > 0)
+            {
+                Recharger();
+                acceleration = 0;
+            }
         }
     }
 
@@ -81,7 +104,7 @@ public class PersonnageTirer : MonoBehaviour
     public IEnumerator IntervalleEntreLesTirs()
     {
         attenteProchaineBalle = true;
-        if(acceleration > 1)
+        if (acceleration > 1)
         {
             acceleration = 1;
         }
@@ -103,37 +126,72 @@ public class PersonnageTirer : MonoBehaviour
 
     void Tirer()
     {
-        acceleration += Time.deltaTime / tempsPleineVitesse;
+        if (classeB == true || classeC == true)
+        {
+            acceleration += Time.deltaTime / tempsPleineVitesse;
 
-        angleHasardeuxActuel = Mathf.Lerp(0f, angleHasardeuxMax, acceleration);
-        angleHasardeuxActuel = Random.Range(-angleHasardeuxActuel, angleHasardeuxActuel) * Mathf.Deg2Rad;
-        Quaternion rotationHasardeuse = sortieDeLaBalle.rotation;
+            angleHasardeuxActuel = Mathf.Lerp(0f, angleHasardeuxMax, acceleration);
+            angleHasardeuxActuel = Random.Range(-angleHasardeuxActuel, angleHasardeuxActuel) * Mathf.Deg2Rad;
+            Quaternion rotationHasardeuse = sortieDeLaBalle.rotation;
 
-        if (personnageMouvements.faceADroite)
-        {
-            rotationHasardeuse.z = rotationHasardeuse.z + angleHasardeuxActuel;
-        }else
-        {
-            rotationHasardeuse.x = rotationHasardeuse.x + angleHasardeuxActuel;
-        }
-
-        if ((inventaire.munitionsActuelle == 0 || recharge) && !attenteProchaineBalle)
-        {
-            audiosource.PlayOneShot(plusDeMunitions, 2f);
-            StartCoroutine(IntervalleEntreLesTirs());
-        }
-        else if (!attenteProchaineBalle)
-        {
-            audiosource.PlayOneShot(tirer, 1.3f);
-            Instantiate(ballePrefab, sortieDeLaBalle.position, rotationHasardeuse);
-            inventaire.munitionsActuelle -= 1;
-            CompteurMun.text = inventaire.munitionsActuelle.ToString();
-            if (inventaire.munitionsActuelle <= 15)
+            if (personnageMouvements.faceADroite)
             {
-                CompteurMun.color = new Color(1f, 0f, 0f, 1f);
+                rotationHasardeuse.z = rotationHasardeuse.z + angleHasardeuxActuel;
             }
-            StartCoroutine(IntervalleEntreLesTirs());
+            else
+            {
+                rotationHasardeuse.x = rotationHasardeuse.x + angleHasardeuxActuel;
+            }
+
+            if ((inventaire.munitionsActuelle == 0 || recharge) && !attenteProchaineBalle)
+            {
+                audiosource.PlayOneShot(plusDeMunitions, 2f);
+                StartCoroutine(IntervalleEntreLesTirs());
+            }
+            else if (!attenteProchaineBalle)
+            {
+                audiosource.PlayOneShot(tirer, 1.3f);
+                StartCoroutine(MuzzleFlash());
+                Instantiate(ballePrefab, sortieDeLaBalle.position, rotationHasardeuse);
+                inventaire.munitionsActuelle -= 1;
+                CompteurMun.text = inventaire.munitionsActuelle.ToString();
+                if (inventaire.munitionsActuelle <= 15)
+                {
+                    CompteurMun.color = new Color(1f, 0f, 0f, 1f);
+                }
+                StartCoroutine(IntervalleEntreLesTirs());
+            }
+        }
+        else if (classeD == true)
+        {
+            if (inventaire.munitionsActuelle > 0)
+            {
+                audiosource.PlayOneShot(tirer, 1.3f);
+                StartCoroutine(MuzzleFlash());
+                Instantiate(ballePrefab, sortieDeLaBalle.position, sortieDeLaBalle.rotation);
+                inventaire.munitionsActuelle -= 1;
+                CompteurMun.text = inventaire.munitionsActuelle.ToString();
+                if (inventaire.munitionsActuelle <= 5)
+                {
+                    CompteurMun.color = new Color(1f, 0f, 0f, 1f);
+                }
+            }
+            else if (inventaire.munitionsActuelle == 0)
+            {
+                audiosource.PlayOneShot(plusDeMunitions);
+            }
         }
     }
-}
 
+    public IEnumerator MuzzleFlash()
+    {
+        lumiere.SetActive(true);
+        flash.Play();
+        animator.SetTrigger("Recul");
+        lampe.SetTrigger("Recul");
+        yield return new WaitForSeconds(0.1f);
+        lumiere.SetActive(false);
+        animator.SetTrigger("Recul");
+        lampe.SetTrigger("Recul");
+    }
+}

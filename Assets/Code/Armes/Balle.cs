@@ -9,11 +9,15 @@ public class Balle : MonoBehaviour
     public int degats = 10;
     private Rigidbody2D rb;
     public GameObject sang;
+    AudioSource source;
+    public AudioClip[] splash;
+    public AudioClip son;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = transform.right * vitesse;
         sang.GetComponent<ParticleSystem>();
+        source = GetComponent<AudioSource>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -27,7 +31,6 @@ public class Balle : MonoBehaviour
             {
                 runner.PrendreDegats(degats);
                 Instantiate(sang, transform.position, transform.rotation);
-                Destroy(gameObject);
                 return;
             }
 
@@ -37,7 +40,6 @@ public class Balle : MonoBehaviour
             {
                 jumper.PrendreDegats(degats);
                 Instantiate(sang, transform.position, transform.rotation);
-                Destroy(gameObject);
                 return;
             }
 
@@ -47,9 +49,20 @@ public class Balle : MonoBehaviour
             {
                 flyer.PrendreDegats(degats);
                 Instantiate(sang, transform.position, transform.rotation);
-                Destroy(gameObject);
                 return;
             }
+            BossVie boss = collision.GetComponent<BossVie>();
+            //Est-ce un boss?
+            if (boss != null)
+            {
+                boss.PrendreDegats(degats);
+                Instantiate(sang, transform.position, transform.rotation);
+                return;
+            }
+            son = splash[Random.Range(0, splash.Length)];
+            source.PlayOneShot(son);
+            print("Ça marche");
+            Destroy(gameObject);
         }
 
         if (collision.CompareTag("Joueur") || collision.CompareTag("Checkpoint") || collision.CompareTag("Aggro"))

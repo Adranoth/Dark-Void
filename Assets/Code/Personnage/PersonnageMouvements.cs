@@ -14,20 +14,24 @@ public class PersonnageMouvements : MonoBehaviour
     public float graviteJetpack = 0f;
     public Animator personnage;
     public Animator jetpack;
-
+    //Direction
     public bool faceADroite = true;
-
+    public bool vaisseau;
+    //Deplacement
     public float vitesseMax = 20;
     public float vitesse = 18;
     public float move;
     public float moveY;
-
+    Vector2 pos1;
+    public Vector2 velocite;
+    public float seuil;
+    //Saut
     public float dureeMaxDeSaut = 0.3f;
     public float forceDeSaut = 30;
     float tempsDeSaut;
     bool enSaut;
     bool auSol = true;
-
+    //Jetpack
     bool jetpackActive = false;
     public float jetpackCD = 5f;
     public float essence = 1;
@@ -38,7 +42,7 @@ public class PersonnageMouvements : MonoBehaviour
     public GameObject lumiere3;
     public GameObject jetpackAudio;
     public GameObject feu;
-
+    //Audio
     AudioSource audiosource;
     public AudioClip pas;
     public AudioClip saut;
@@ -53,52 +57,68 @@ public class PersonnageMouvements : MonoBehaviour
 
     void FixedUpdate()
     {
-        Direction();
+        if (!MenuPause.jeuEnPause)
+        {
+            Direction();
+        }
     }
 
     private void Update()
     {
-        Saut();
-        Jetpack();
-        if (jetpackActive == false)
+        if (!MenuPause.jeuEnPause)
         {
-            essence += Time.deltaTime;
-            if (essence > 3.33)
+            Saut();
+            Jetpack();
+            if (jetpackActive == false)
             {
-                lumiere3.SetActive(true);
-                if (essence > 6.66)
+                essence += Time.deltaTime;
+                if (essence > 3.33)
                 {
-                    lumiere2.SetActive(true);
-                    if (essence > essenceMax)
+                    lumiere3.SetActive(true);
+                    if (essence > 6.66)
                     {
-                        essence = essenceMax;
-                        lumiere1.SetActive(true);
+                        lumiere2.SetActive(true);
+                        if (essence > essenceMax)
+                        {
+                            essence = essenceMax;
+                            lumiere1.SetActive(true);
+                        }
                     }
                 }
             }
-        }
-        else
-        {
-            essence -= Time.deltaTime;
-            if (essence < 6.66)
+            else
             {
-                lumiere1.SetActive(false);
-                if (essence < 3.33)
+                essence -= Time.deltaTime;
+                if (essence < 6.66)
                 {
-                    lumiere2.SetActive(false);
-                    if (essence < 0)
+                    lumiere1.SetActive(false);
+                    if (essence < 3.33)
                     {
-                        essence = 0;
-                        lumiere3.SetActive(false);
-                        feu.SetActive(false);
-                        jetpackActive = false;
-                        jetpackEnCD = true;
-                        personnageRb.drag = linearDragAuSol;
-                        personnageRb.gravityScale = graviteAuSol;
-                        jetpack.SetBool("EstAllume", false);
-                        jetpackAudio.GetComponent<AudioSource>().Stop();
+                        lumiere2.SetActive(false);
+                        if (essence < 0)
+                        {
+                            essence = 0;
+                            lumiere3.SetActive(false);
+                            feu.SetActive(false);
+                            jetpackActive = false;
+                            jetpackEnCD = true;
+                            personnageRb.drag = linearDragAuSol;
+                            personnageRb.gravityScale = graviteAuSol;
+                            jetpack.SetBool("EstAllume", false);
+                            jetpackAudio.GetComponent<AudioSource>().Stop();
+                        }
                     }
                 }
+            }
+            velocite = ((Vector2)personnageRb.transform.position - pos1) / Time.deltaTime;
+            pos1 = personnageRb.transform.position;
+            if (Mathf.Abs(velocite.y) > seuil)
+            {
+                personnageRb.drag = 3;
+            }
+            else
+            {
+                personnageRb.drag = 0;
             }
         }
     }
@@ -130,13 +150,16 @@ public class PersonnageMouvements : MonoBehaviour
         {
             Flip();
         }
-
-        if (!jetpackActive)
+        if (FindObjectOfType<PersonnageVie>().tempsDeKnockback == 0)
         {
-            personnageRb.velocity = new Vector2(vitesse * move, personnageRb.velocity.y);
-        }else
-        {
-            personnageRb.velocity = new Vector2(vitesse * move, vitesse * moveY);
+            if (!jetpackActive)
+            {
+                personnageRb.velocity = new Vector2(vitesse * move, personnageRb.velocity.y);
+            }
+            else
+            {
+                personnageRb.velocity = new Vector2(vitesse * move, vitesse * moveY);
+            }
         }
     }
 
@@ -146,46 +169,6 @@ public class PersonnageMouvements : MonoBehaviour
 
         transform.Rotate(0f, 180f, 0f);
     }
-    /*
-    private void Jetpack()
-    {
-        if (Input.GetKeyDown(KeyCode.Space) && !auSol && !enSaut && inventaire.jetpackAcquis && !jetpackEnCD)
-        {
-            enSaut = false;
-            tempsDeJetpack = 0;
-            jetpackActive = true;
-            personnageRb.drag = linearDragJetpack;
-            personnageRb.gravityScale = graviteJetpack;
-            jetpack.SetBool("EstAllume", true);
-        }
-         if (jetpackActive)
-         {
-            tempsDeJetpack += Time.deltaTime;
-         }
-        
-        if ((Input.GetKeyUp(KeyCode.Space) && tempsDeJetpack > dureeMaxDeJetpack && !jetpackEnCD && jetpackActive))
-        {
-            jetpackActive = false;
-            jetpackEnCD = true;
-            tempsDeJetpackCD = 0;
-            personnageRb.drag = linearDragAuSol;
-            personnageRb.gravityScale = graviteAuSol;
-            jetpack.SetBool("EstAllume", false);
-        }
-        if (jetpackEnCD)
-        {
-            tempsDeJetpackCD += Time.deltaTime;
-        }
-        if (tempsDeJetpack > jetpackCD)
-        {
-            jetpackEnCD = false;
-        }
-        if (essence == essenceMax)
-        {
-            jetpackEnCD = false;
-        }
-    }
-    */
     
     private void Jetpack()
     {
@@ -244,6 +227,22 @@ public class PersonnageMouvements : MonoBehaviour
             audiosource.PlayOneShot(atterissage, 2f);
             auSol = true;
             personnage.SetBool("IsJumping", false);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.name == "Vaisseau")
+        {
+            vaisseau = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.name == "Vaisseau")
+        {
+            vaisseau = false;
         }
     }
 

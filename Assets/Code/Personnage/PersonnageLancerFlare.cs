@@ -12,14 +12,17 @@ public class PersonnageLancerFlare : MonoBehaviour
 
     void Update()
     {
-        if ((Input.GetButtonDown("Fire2")) && inventaire.nbFlareActuels > 0)
+        if (!MenuPause.jeuEnPause)
         {
-            animator.SetTrigger("Lance");
-            Tirer();
-        }
-        else
-        {
-            return;
+            if ((Input.GetButtonDown("Fire2")) && inventaire.nbFlareActuels > 0)
+            {
+                animator.SetTrigger("Lance");
+                Tirer();
+            }
+            else
+            {
+                return;
+            }
         }
     }
 

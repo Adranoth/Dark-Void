@@ -8,6 +8,7 @@ public class PorteOuverture : MonoBehaviour
     private bool PorteOuverte = false;
     private bool interaction;
     public GameObject porte;
+    public GameObject ombre;
     public AudioSource audiosource;
     public AudioClip ouvrir;
     public AudioClip fermer;
@@ -30,6 +31,7 @@ public class PorteOuverture : MonoBehaviour
                     animator.SetBool("Interaction", false);
                     audiosource.PlayOneShot(fermer, 1f);
                     porte.GetComponent<BoxCollider2D>().enabled = true;
+                    ombre.SetActive(true);
                     PorteOuverte = false;
                 }
             }
@@ -54,6 +56,7 @@ public class PorteOuverture : MonoBehaviour
 
     private IEnumerator OuvrirPorte()
     {
+        ombre.SetActive(false);
         yield return new WaitForSeconds(2);
         porte.GetComponent<BoxCollider2D>().enabled = false;
     }

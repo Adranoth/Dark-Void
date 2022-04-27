@@ -8,16 +8,19 @@ public class PersonnageBrasRotation : MonoBehaviour
     bool faceADroite = true;
     void Update()
     {
-        Vector3 difference = Camera.main.ScreenToWorldPoint(Input.mousePosition) - personnage.position;
-
-        if (difference.x > 0f && !faceADroite)
+        if (!MenuPause.jeuEnPause)
         {
-            Flip();
-        }
+            Vector3 difference = Camera.main.ScreenToWorldPoint(Input.mousePosition) - personnage.position;
 
-        if (difference.x < 0f && faceADroite)
-        {
-            Flip();
+            if (difference.x > 0f && !faceADroite)
+            {
+                Flip();
+            }
+
+            if (difference.x < 0f && faceADroite)
+            {
+                Flip();
+            }
         }
     }
 

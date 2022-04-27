@@ -19,6 +19,7 @@ namespace Pathfinding {
 		IAstarAI ai;
 
 		void OnEnable () {
+			target = GameObject.FindGameObjectWithTag("Joueur").transform;
 			ai = GetComponent<IAstarAI>();
 			// Update the destination right before searching for a path as well.
 			// This is enough in theory, but this script will also update the destination every
@@ -27,7 +28,7 @@ namespace Pathfinding {
 			if (ai != null) ai.onSearchPath += Update;
 		}
 
-		void OnDisable () {
+        void OnDisable () {
 			if (ai != null) ai.onSearchPath -= Update;
 		}
 

@@ -10,6 +10,7 @@ public class AudioManager : MonoBehaviour
     public Sons[] son;
     public static AudioManager instance;
     public bool enCombatMusique;
+    public List<GameObject> listeMonstres = new List<GameObject>();
 
     void Awake()
     {
@@ -46,6 +47,7 @@ public class AudioManager : MonoBehaviour
             return;
         }
         audio.source.Play();
+        audio.source.volume = audio.volume;
     }
 
     public IEnumerator StartFade(string nom, float duration, float targetVolume)
@@ -71,5 +73,42 @@ public class AudioManager : MonoBehaviour
             return;
         }
         audio.source.Stop();
+    }
+
+    public void Restart()
+    {
+        foreach (Sons audio in son)
+        {
+            audio.source.Stop();
+        }
+    }
+
+    public void MonstreAggro(GameObject monstre)
+    {
+        if (!listeMonstres.Contains(monstre))
+        {
+            listeMonstres.Add(monstre);
+        }
+    }
+
+    public void MonstreMort(GameObject monstre)
+    {
+        if (listeMonstres.Contains(monstre))
+        {
+            listeMonstres.Remove(monstre);
+            print(listeMonstres.Count);
+            if (listeMonstres.Count == 0)
+            {
+                StartCoroutine(StartFade("combat", 2f, 0f));
+                Stop("combat");
+                enCombatMusique = false;
+                FindObjectOfType<PersonnageVie>().enCombat = false;
+                StartCoroutine(StartFade("station_spatial", 2f, 1f));
+            }
+            else
+            {
+                return;
+            }
+        }
     }
 }

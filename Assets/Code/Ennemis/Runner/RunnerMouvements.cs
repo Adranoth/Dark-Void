@@ -6,22 +6,68 @@ public class RunnerMouvements : MonoBehaviour
 {
 
     public float vitesse;
+    public float vitesseDeBase;
     public float vitesseObscurite;
     public float vitesseLumiere;
     public float HauteurDeSaut;
+    public float longueurDeSaut;
 
-    private bool faceAGauche = true;
+    public bool faceAGauche = true;
 
     public Transform cible;
     private Vector3 ciblePosition;
+    public float distanceY;
+    public float distanceX;
+    public bool auSol;
+    Vector2 pos1;
+    public Vector2 velocite;
+    public float seuil;
 
     public Rigidbody2D runnerRB;
     public Animator animator;
-    
+    bool lumiere;
+
+    private void Start()
+    {
+        vitesseDeBase = Random.Range(9f, 11f);
+        vitesse = vitesseDeBase;
+        vitesseLumiere = vitesseDeBase * 0.75f;
+        vitesseObscurite = vitesseDeBase * 1.25f;
+        cible = GameObject.FindGameObjectWithTag("Joueur").transform;
+    }
+
     void FixedUpdate()
     {
-        ciblePosition = new Vector3(cible.position.x, runnerRB.position.y, 0);
-        runnerRB.position = Vector2.MoveTowards(transform.position, ciblePosition, vitesse * Time.deltaTime);
+        velocite = ((Vector2)runnerRB.transform.position - pos1) / Time.deltaTime;
+        pos1 = runnerRB.transform.position;
+        distanceY = cible.position.y - runnerRB.position.y;
+        distanceX = Mathf.Abs(cible.position.x - runnerRB.position.x);
+        if ((distanceY > 0) && (Mathf.Abs(velocite.x) < seuil))
+        {
+            ciblePosition = new Vector3(cible.position.x, runnerRB.position.y, 0);
+            runnerRB.position = Vector2.MoveTowards(transform.position, ciblePosition, vitesse * Time.deltaTime);
+            runnerRB.gravityScale = 0f;
+        }
+        else if ((distanceY > 5) && (auSol == true) && (distanceX < 2))
+        {
+            ciblePosition = new Vector3(cible.position.x, runnerRB.position.y, 0);
+            runnerRB.position = Vector2.MoveTowards(transform.position, ciblePosition, vitesse * Time.deltaTime);
+            runnerRB.gravityScale = 15f;
+            Saut();
+        }
+        else if (distanceX > 15)
+        {
+            ciblePosition = new Vector3(cible.position.x, cible.position.y, 0);
+            runnerRB.position = Vector2.MoveTowards(transform.position, ciblePosition, vitesse * Time.deltaTime);
+            runnerRB.gravityScale = 0.5f;
+        }
+        else
+        {
+            ciblePosition = new Vector3(cible.position.x, runnerRB.position.y, 0);
+            runnerRB.position = Vector2.MoveTowards(transform.position, ciblePosition, vitesse * Time.deltaTime);
+            runnerRB.gravityScale = 15f;
+        } 
+        
         animator.SetFloat("Vitesse", Mathf.Abs(vitesse));
 
         float difference = transform.position.x - cible.position.x;
@@ -35,10 +81,16 @@ public class RunnerMouvements : MonoBehaviour
         {
             Flip();
         }
-
         if (FindObjectOfType<Inventaire>().audio1 == true)
         {
-            vitesse = vitesseObscurite;
+            if (lumiere == true)
+            {
+                vitesse = vitesseLumiere;
+            }
+            else
+            {
+                vitesse = vitesseObscurite;
+            }
         }
     }
 
@@ -52,37 +104,36 @@ public class RunnerMouvements : MonoBehaviour
     private void Saut()
     {
         animator.SetBool("EnSaut", true);
-        runnerRB.AddForce(new Vector3(0, HauteurDeSaut, 0), ForceMode2D.Impulse);
+        runnerRB.AddForce(new Vector3(longueurDeSaut, HauteurDeSaut, 0), ForceMode2D.Impulse);
+        auSol = false;
+
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.CompareTag("Sol"))
-        {
-            animator.SetBool("EnSaut", false);
-        }
-        else if (collision.CompareTag("Mur"))
+        if (collision.gameObject.tag == "Mur")
         {
             Saut();
+            auSol = true;
+            animator.SetBool("EnSaut", false);
+        }
+        else if (collision.gameObject.tag == "Sol")
+        {
+            auSol = true;
+            animator.SetBool("EnSaut", false);
         }
     }
+
 
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.CompareTag("Lumiere") && FindObjectOfType<Inventaire>().audio1 == true)
         {
-            vitesse = vitesseLumiere;
+            lumiere = true;
         }
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Lumiere"))
+        else
         {
-            if (FindObjectOfType<Inventaire>().audio1 == true)
-            {
-                vitesse = vitesseObscurite;
-            }
+            lumiere = false;
         }
     }
 }
