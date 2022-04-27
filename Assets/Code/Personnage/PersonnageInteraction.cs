@@ -36,11 +36,27 @@ public class PersonnageInteraction : MonoBehaviour
         {
             interaction = true;
         }
+        else if (collision.CompareTag("Vaisseau"))
+        {
+            interaction = true;
+        }
+        else if (collision.CompareTag("Checkpoint"))
+        {
+            interaction = true;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.CompareTag("Interaction"))
+        {
+            interaction = false;
+        }
+        else if (collision.CompareTag("Vaisseau"))
+        {
+            interaction = false;
+        }
+        else if (collision.CompareTag("Checkpoint"))
         {
             interaction = false;
         }

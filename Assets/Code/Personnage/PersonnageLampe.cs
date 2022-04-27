@@ -9,6 +9,7 @@ public class PersonnageLampe : MonoBehaviour
     public GameObject lumiere;
     public GameObject collision;
     public bool estAllume = false;
+    public bool dejaAllume = false;
     
     void Start()
     {
@@ -29,5 +30,6 @@ public class PersonnageLampe : MonoBehaviour
         estAllume = !estAllume;
         lumiere.SetActive(estAllume);
         collision.SetActive(estAllume);
+        dejaAllume = !dejaAllume;
     }
 }

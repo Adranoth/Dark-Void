@@ -42,11 +42,6 @@ public class Inventaire : MonoBehaviour
     public bool audio2;
     public bool audio3;
 
-    //Allumer/Éteindre inventaire
-    bool InventaireAllume;
-    public GameObject lumiere;
-    public GameObject personnage;
-    public PersonnageMouvements direction;
     private void Awake()
     {
         //Inventaire de Départ
@@ -62,34 +57,17 @@ public class Inventaire : MonoBehaviour
         pateAClone.text = pateACloneActuelle.ToString();
     }
 
-    //Allumer l'inventaire allume une lumière et empêche le joueur de bouger et tirer jusqu'à ce qu'il referme l'inventaire
-    private void Update()
+    public void Reset()
     {
-        if (Input.GetKeyDown(KeyCode.I))
-        {
-            if (InventaireAllume == false)
-            {
-                inventaire.SetActive(true);
-                lumiere.SetActive(true);
-                personnage.GetComponent<PersonnageMouvements>().enabled = false;
-                personnage.GetComponent<PersonnageTirer>().enabled = false;
-                personnage.GetComponent<PersonnageLancerFlare>().enabled = false;
-                InventaireAllume = true;
-                if (direction.faceADroite == false)
-                {
-                    personnage.transform.Rotate(0f, 180f, 0f);
-                    direction.faceADroite = true;
-                }
-            }
-            else
-            {
-                inventaire.SetActive(false);
-                lumiere.SetActive(false);
-                personnage.GetComponent<PersonnageMouvements>().enabled = true;
-                personnage.GetComponent<PersonnageTirer>().enabled = true;
-                personnage.GetComponent<PersonnageLancerFlare>().enabled = true;
-                InventaireAllume = false;
-            }
-        }
+        nbFlareActuels = nbFlareMax;
+        nbMediKitsActuels = nbMediKitsMax;
+        munitionsActuelle = munitionsMax;
+        chargeursActuels = chargeursMax;
+
+        //Gestion du texte pour l'inventaire
+        fusee.text = nbFlareActuels.ToString();
+        premierSoin.text = nbMediKitsActuels.ToString();
+        chargeur.text = chargeursActuels.ToString();
+        pateAClone.text = pateACloneActuelle.ToString();
     }
 }
